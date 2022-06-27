@@ -8,7 +8,7 @@ $name=$_SESSION["name"];
 $user_type=$_SESSION["type"];
 
 ?>
-<h1>divyesh</h1>
+
 
  <div class="app-wrapper">
 	
@@ -46,14 +46,14 @@ $user_type=$_SESSION["type"];
 			    <div>
                     <tr>
                         <td><label for="name">Full Name :</label></td>
-                        <td><input class="iptemt" type="text"  name="name"  value="<?php echo $name; ?>" placeholder="Enter full Name"></td>
+                        <td><input class="iptemt" type="text"  name="name"  value="<?php echo $name; ?>" placeholder="Enter full Name" required></td>
                     </tr>
                 </div>
 
 				<div>
                     <tr>
                         <!-- <td><label for="department_name">deparment name</label></td> -->
-                        <td><input  class="iptemt" type="hidden"  name="deparment_name"  value="<?php echo $deparment_name; ?>" placeholder="Enter department Name"></td>
+                        <td><input  class="iptemt" type="hidden"  name="deparment_name"  value="<?php echo $deparment_name; ?>" placeholder="Enter department Name" required></td>
                     </tr>
                 </div>
 
@@ -61,7 +61,7 @@ $user_type=$_SESSION["type"];
 				<div>
                     <tr>
                         <!-- <td><label for="user_type">user type :</label></td> -->
-                        <td><input class="iptemt" type="hidden" name="user_type" placeholder="Enter user type"></td>
+                        <td><input class="iptemt" type="hidden" name="user_type" placeholder="Enter user type" required></td>
                     </tr>
                 </div>
 					   
@@ -69,7 +69,7 @@ $user_type=$_SESSION["type"];
                 <div>
                     <tr>
                         <td><label for="pemailid">Preferred Email Address:</label></td>
-                        <td><input class="iptemt" type="email" name="pemailid" placeholder="Enter Email Id" value="<?php  echo '@gmail.com';?>" ></td>
+                        <td><input class="iptemt" type="email" name="pemailid" placeholder="Enter Email Id" value="<?php  echo '@gmail.com';?>" required></td>
                     </tr>
                 </div>   
 
@@ -80,7 +80,7 @@ $user_type=$_SESSION["type"];
                 <div>
                     <tr>
                         <td><label for="emailid">given Email Id :</label></td>
-                        <td><input class="iptemt" type="email" name="emailid" placeholder="Enter Email Id" value="<?php  echo $email;?>" ></td>
+                        <td><input class="iptemt" type="email" name="emailid" placeholder="Enter Email Id" value="<?php  echo $email;?>" required></td>
                     </tr>
                 </div>
 
@@ -100,57 +100,9 @@ $user_type=$_SESSION["type"];
                     </table>
                 </div>
             </form>
-            <script>
             
-	function validation()
-		{
-			let nmptr =/^[a-zA-Z]+$/;
-			let pass =/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
-
-			let name = document.forms['registrationform']['name'].value;
-			let email= document.forms['registrationform']['username'].value;
-			let pa = document.forms['registrationform']['password'].value;
-			let rb= document.forms['registrationform']['usertype'].value;
-						
-			if(name=="")
-			{
-				alert('name is empty');
-				return false;
-			}
-			
-			if(nmptr.test(name)==false){
-				alert("Name must be characters");
-				return(false);
-			}
-			
-			if(email=="")
-			{
-				alert('email  is empty');
-				return false;
-			}
-			
-			if(pa=="")
-			{
-				alert('password is empty');
-				return false;
-			}
-			
-			if(pass.test(pa)==false){
-				alert("password must be lowercase,uppercase,number,Minimum 8 characters");
-                return false;
-			}
-			
-			if(rb==false)
-			{
-				alert('plese select student or sevak ');
-				return false;
-			}
-		}
-			
-	   </script>
         </div>
     </div>
-    <div id="footerdiv"><div>
         
     </body>
 </html>

@@ -36,13 +36,13 @@ $user_type=$_SESSION["type"];
 			   border:1px solid black;
 			   color:black;
 			   font-weight:bold;
-			   
+			   width:100%;
 
 			}
 			.iptemt
 			{
-				height:45px;
-				border:3px solid green ;
+				/* height:100%; */
+				/* border:3px solid green ; */
 				width:100%;
 				background-color:withe;
 			}
@@ -50,7 +50,7 @@ $user_type=$_SESSION["type"];
 			.iptemt:hover
 			{
 				
-				border:5px solid  rgb(68,114,148) ;
+				border:3px solid  rgb(68,114,148) ;
 				/* width:380p/x; */
 				
 			}
@@ -77,9 +77,9 @@ $user_type=$_SESSION["type"];
 
 			.rdb
 			{
-				height:15px;
+				/* height:15px; */
 				border:5px solid green ;
-				width:50px;
+				/* width:50px; */
 				
 			}
 
@@ -90,7 +90,10 @@ $user_type=$_SESSION["type"];
 				/* width:50px; */
 				
 			}
-
+            #rform{
+				border: 1px solid black;
+				
+			}
 
 		</style>
       
@@ -100,11 +103,11 @@ $user_type=$_SESSION["type"];
 
 	
     <body>
-        <div id="maindiv">
-        <div id="formdiv">
+        <!-- <div id="maindiv"> -->
+        <!-- <div id="formdiv"> -->
             <form action="" id="rform" name="registrationform" onsubmit="return validation()" method="post" enctype="multipart/form-data" >
-            <div id="leble" style="background-color:white;padding:15px;" class="form-control"><h4></h4></div>   
-            <div>
+            <!-- <div id="leble" style="background-color:white;padding:15px;" class="form-control"><h4></h4></div>    -->
+            <!-- <div> -->
                     <table>
                         <!-- <div>
                             <tr>
@@ -227,11 +230,11 @@ $user_type=$_SESSION["type"];
 						
 						
                             <tr>
-                                <td><input class="btn" type="submit" id="rsubmit"  name="submit" value="SUBMIT"></td>
+                                <td><center><input class="btn" type="submit" id="rsubmit"  name="submit" value="SUBMIT"></center></td>
                             </tr>
                          
                     </table>
-                </div>
+                <!-- </div> -->
             </form>
             <script>
             
@@ -281,9 +284,9 @@ $user_type=$_SESSION["type"];
 		}
 			
 	   </script>
-        </div>
-    </div>
-    <div id="footerdiv"><div>
+        <!-- </div> -->
+    <!-- </div> -->
+    <!-- <div id="footerdiv"><div> -->
         
     </body>
 </html>

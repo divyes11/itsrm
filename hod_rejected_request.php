@@ -17,25 +17,25 @@ include 'header.php';
 
 .tab
 {
-    border:3px solid black;
-    margin-left:300px;
-    margin-right: 358px;
-	
+    /* border:3px solid black;
+    margin-left:470px;
+    margin-right: 470px;
+	 */
 }
 
 .hed th
 {
 	
    margin-left:30px; 
-   /* padding-left:50px; */
+   padding-left:50px;
     
 }
 
 td
 {
 	border:3px solid black;
-	padding-left:17px;
-	padding-right:17px;
+	padding-left:50px;
+	padding-right:50px;
 }
 
 th
@@ -49,7 +49,21 @@ th
         </head>
 	
 		<body>
-		<h2>Requests</h2>
+
+		<div class="app-wrapper">
+	    
+	    <div class="app-content pt-3 p-md-3 p-lg-4">
+		    <div class="container-xl">
+			    
+			    <!-- <h1 class="app-page-title">wifi application</h1> -->
+			    
+			    <div class="app-card alert alert-dismissible shadow-sm mb-4 border-left-decoration" role="alert">
+				    <div class="inner">
+					    <div class="app-card-body p-3 p-lg-4">
+						    <h3 class="mb-3"></h3>
+						    <div class="row gx-5 gy-3">
+						        <div class="col-12 col-lg-9">
+		<h2><center style="padding-left:30%;">Rejected Requests</center></h2>
 		
 		<?php
 		
@@ -62,14 +76,14 @@ th
 			<table cellpadding="7px">
 				<thead>
 				<div class="hed">
-				<th>Roll no</th>
-				<th>Name</th>
-				<th>Department</th>
-				<th>Course</th>
-				<th>Email</th>
-				<th>Designation</th>
-				<th>Connection type</th>
-				<th>Choice</th>
+				<th><center>Roll no</center></th>
+				<th><center>Name</center></th>
+				<th><center>Department</center></th>
+				<th><center>Course</center></th>
+				<th><center>Email</center></th>
+				<th><center>Designation</center></th>
+				<th><center>Connection type</center></th>
+				<th><center>Choice</center></th>
 				
                 </div>
 				
@@ -94,9 +108,11 @@ th
 					<form action="" method="post">
 						 
 								
-					<td><input type="submit" name="APROVE" value="APROVE"></td>
-					<td><input type="submit" name="REJECT" value="REJECT"></td>
-					<td><input type="hidden" name="userid" value = "<?php echo $row['user_id']; ?>"></td>
+					<td>
+					<!-- <input type="submit" name="APROVE" value="APROVE"> -->
+					<!-- <input type="submit" name="REJECT" value="REJECT"> -->
+				    <input type="submit" name="UNDO" value="UNDO"></td>
+					<input type="hidden" name="userid" value = "<?php echo $row['user_id']; ?>">
 									 
 					</form>
 				</tr>
@@ -112,13 +128,32 @@ th
 			?>
 
 				
-				<center><h1>No rejected requests</h1></center>
+<center style="padding-left:30%;"><h1>empty</h1></center>
 <?php
 }
 ?>
 
 			</table>
     </div>
+
+	</div>
+	
+	<div>
+									</div>
+							    </div><!--//col-->
+							    <div class="col-12 col-lg-3">
+						
+							    </div><!--//col-->
+						    </div><!--//row-->
+						    
+					    </div><!--//app-card-body-->
+					    
+				    </div><!--//inner-->
+			    </div><!--//app-card-->
+				    
+			    
+		    </div><!--//container-fluid-->
+	    </div><!--//app-content-->
 			
 		</body>
 
@@ -126,25 +161,35 @@ th
 
 <?php 
 
-    if(isset($_POST['APROVE'])){
-		$userid = $_POST['userid'];
-		$query = "UPDATE tbl_connection  SET approve =1  WHERE user_id ='$userid' ";
-		if(mysqli_query($conn,$query)){
-			echo'<script>
-			 alert("Request Aproved");
-			</script>';
-		}
+    // if(isset($_POST['APROVE'])){
+	// 	$userid = $_POST['userid'];
+	// 	$query = "UPDATE tbl_connection  SET approve =1  WHERE user_id ='$userid' ";
+	// 	if(mysqli_query($conn,$query)){
+	// 		echo'<script>
+	// 		 alert("Request Aproved");
+	// 		</script>';
+	// 	}
 
-	}
+	// }
 
-	if(isset($_POST['REJECT'])){
-		$userid = $_POST['userid'];
-		$query = "UPDATE tbl_connection  SET approve ='2'  WHERE user_id ='$userid' ";
-		if(mysqli_query($conn,$query)){
-			echo'<script>
-			 alert("Request Reject");
-			</script>';
-		}
+	// if(isset($_POST['REJECT'])){
+	// 	$userid = $_POST['userid'];
+	// 	$query = "UPDATE tbl_connection  SET approve ='2'  WHERE user_id ='$userid' ";
+	// 	if(mysqli_query($conn,$query)){
+	// 		echo'<script>
+	// 		 alert("Request Reject");
+	// 		</script>';
+	// 	}
+	// }
+		if(isset($_POST['UNDO'])){
+			$userid = $_POST['userid'];
+			$query = "UPDATE tbl_connection  SET approve ='0'  WHERE user_id ='$userid' ";
+			if(mysqli_query($conn,$query)){
+				echo'<script>
+				 alert("Request UNDO");
+				</script>';
+			}
+	
 
 	}
    

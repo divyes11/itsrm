@@ -34,38 +34,59 @@ include 'header.php';
 
 .tab
 {
-    /* border:3px solid black; */
-    margin-left:300px;
-    margin-right: 358px;
-	
+    /* border:3px solid black;
+    margin-left:470px;
+    margin-right: 470px;
+	 */
+	/* padding-right:1%; */
+	margin-right:30%; 
+
 }
+
+
+
 
 .hed th
 {
 	
    margin-left:30px; 
-   /* padding-left:50px; */
+   padding-left:50px;
     
 }
 
-td
+ td
 {
 	border:3px solid black;
-	padding-left:5px;
-	padding-right:5px;
+	/* padding-left:5%; */
+	/* padding-right:50%; */
 }
 
 th
 {
 	border:3px solid black;
-}
+} 
 
         </style>
+
     
         </head>
 	
 		<body>
-		<h2>requests</h2>
+
+		<div class="app-wrapper">
+	    
+	    <div class="app-content pt-3 p-md-3 p-lg-4">
+		    <div class="container-xl">
+			    
+			    <!-- <h1 class="app-page-title">wifi application</h1> -->
+			    
+			    <div class="app-card alert alert-dismissible shadow-sm mb-4 border-left-decoration" role="alert">
+				    <div class="inner">
+					    <div class="app-card-body p-3 p-lg-4">
+						    <h3 class="mb-3"></h3>
+						    <div class="row gx-5 gy-3">
+						        <div class="col-12 col-lg-9">
+		<h2> Panding Requests</h2>
 		
 		<?php
 		
@@ -78,15 +99,15 @@ th
 			<table cellpadding="7px">
 				<thead>
 				<div class="hed">
-				<th>User type</th>	
-				<th>Roll no</th>
-				<th>Name</th>
-				<th>Department</th>
-				<th>Course</th>
-				<th>Email</th>
-				<th>Cesignation</th>
-				<th>Connection type</th>
-				<th>Choice</th>
+				<th><center>User type</center></th>	
+				<th><center>Roll no</center></th>
+				<th><center>Name</center></th>
+				<th><center>Department</center></th>
+				<th><center>Course</center></th>
+				<th><center>Email</center></th>
+				<th><center>Cesignation</center></th>
+				<th><center>Connection type</center></th>
+				<th><center>Choice</center></th>
 				
                 </div>
 				
@@ -111,9 +132,9 @@ th
 					<form action="" method="post">
 						 
 								
-					<td><input type="submit" name="APROVE" value="APROVE"> 
-					<input type="submit" name="REJECT" value="REJECT">
-				    <input type="submit" name="UNDO" value="UNDO"></td>
+					<td><input type="submit" name="APROVE" value="APPROVE"> 
+					<input type="submit" name="REJECT" value="REJECT"></td>
+				   
 					
 					<input type="hidden" name="userid" value = "<?php echo $row['user_id']; ?>">
 								 
@@ -171,15 +192,5 @@ th
 
 	}
 
-	if(isset($_POST['UNDO'])){
-		$userid = $_POST['userid'];
-		$query = "UPDATE tbl_connection  SET approve ='0'  WHERE user_id ='$userid' ";
-		if(mysqli_query($conn,$query)){
-			echo'<script>
-			 alert("Request UNDO");
-			</script>';
-		}
 
-	}
-   
 ?>

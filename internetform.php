@@ -34,13 +34,17 @@ $user_type=$_SESSION["type"];
 			   border:1px solid black;
 			   color:black;
 			   font-weight:bold;
-			} 
+			   width:100%;
 
+			}
 
+          .td{
+			width:100%;
+		  }
 			.iptemt
 			{
 				height:45px;
-				border:3px solid green ;
+				/* border:3px solid green ; */
 				width:100%;
 				background-color:withe;
 			}
@@ -48,7 +52,7 @@ $user_type=$_SESSION["type"];
 			.iptemt:hover
 			{
 				
-				border:5px solid rgb(68,114,148) ;
+				border:3px solid rgb(68,114,148) ;
 				/* width:380px; */
 				
 			}
@@ -68,26 +72,20 @@ $user_type=$_SESSION["type"];
 			}
 			.btn:hover
 			{
-				border:5px solid black ;
+				border:3px solid black ;
 
 				
 			}
 
 			.rdb
 			{
-				height:15px;
-				border:5px solid green ;
-				width:50px;
+				/* height:15px; */
+				border:2px solid green ;
+				/* width:50px; */
 				
 			}
 
-			.rdb:hover
-			{
-				height:25px;
-				border:30px solid green ;
-				width:50px;
-				
-			}
+			
 
 
 
@@ -99,12 +97,10 @@ $user_type=$_SESSION["type"];
 
 	
     <body>
-        <div id="header"></div>
-        <div id="maindiv">
-        <div id="formdiv">
+       
              <form action="" id="rform" name="registrationform" onsubmit="return validation()" method="post" enctype="multipart/form-data" >
-            <div id="leble" style="background-color:white;padding:15px;" class="form-control"><h4></h4></div>   
-            <div>
+            <!-- <div id="leble" style="background-color:white;padding:15px;" class="form-control"><h4></h4></div>    -->
+            
                     <table>
                         <!-- <div>
                             <tr>
@@ -185,16 +181,15 @@ $user_type=$_SESSION["type"];
                 
                        		
 						
-                            <tr>
-                                <td><input class="btn" type="submit" id="rsubmit"  name="submit" value="SUBMIT"></td>
-                            </tr>
+                            <!-- <tr> -->
+                                <td><center><input class="btn" type="submit" id="rsubmit"  name="submit" value="SUBMIT"></center></td>
+                            <!-- </tr> -->
                          
                     </table>
-                </div>
+               
             </form>
           
-        </div>
-    </div>
+   
         
     </body>
 </html>
