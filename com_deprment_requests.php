@@ -30,28 +30,60 @@ include 'header.php';
 <html>
 	<head>
 		 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-	    <style>
+		 <style>
 
 .tab
 {
-    border:3px solid black;
-    margin-left:300px;
-    margin-right:300px;
+    /* border:3px solid black;
+    margin-left:470px;
+    margin-right: 470px;
+	 */
+	/* padding-right:1%; */
+	/* margin-left:1%;  */
+
 }
 
 .hed th
 {
+	
    margin-left:30px; 
    padding-left:50px;
     
 }
+
+td
+{
+	border:3px solid black;
+	padding-left:25px;
+	padding-right:25px;
+}
+
+th
+{
+	border:3px solid black;
+}
+
         </style>
-    
+   
     
         </head>
 	
 		<body>
-		<h2>requests</h2>
+
+		<div class="app-wrapper">
+	    
+	    <div class="app-content pt-3 p-md-3 p-lg-4">
+		    <div class="container-xl">
+			    
+			    <!-- <h1 class="app-page-title">wifi application</h1> -->
+			    
+			    <div class="app-card alert alert-dismissible shadow-sm mb-4 border-left-decoration" role="alert">
+				    <div class="inner">
+					    <div class="app-card-body p-3 p-lg-4">
+						    <h3 class="mb-3"></h3>
+						    <div class="row gx-5 gy-3">
+						        <div class="col-12 col-lg-9">
+		<h2><center style="padding-left:20%;">Requests</center></h2>
 		
 		<?php
 		
@@ -126,7 +158,7 @@ include 'header.php';
 
 
 					
-					<td><input type="hidden" name="userid" value = "<?php echo $row['user_id']; ?>"></td>
+					<input type="hidden" name="userid" value = "<?php echo $row['user_id']; ?>">
 							
 						 
 						 
@@ -155,6 +187,25 @@ include 'header.php';
 
 			</table>
     </div>
+
+
+	<div>
+									</div>
+							    </div><!--//col-->
+							    <div class="col-12 col-lg-3">
+						
+							    </div><!--//col-->
+						    </div><!--//row-->
+						    
+					    </div><!--//app-card-body-->
+					    
+				    </div><!--//inner-->
+			    </div><!--//app-card-->
+				    
+			    
+		    </div><!--//container-fluid-->
+	    </div><!--//app-content-->
+
 			
 		</body>
 

@@ -30,43 +30,43 @@ include 'header.php';
 <html>
 	<head>
 		 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-		 <style>
+			<style>
 
-.tab
-{
-    /* border:3px solid black;
-    margin-left:470px;
-    margin-right: 470px;
-	 */
-	/* padding-right:1%; */
-	margin-right:30%; 
+	.tab
+	{
+		/* border:3px solid black;
+		margin-left:470px;
+		margin-right: 470px;
+		*/
+		/* padding-right:1%; */
+		margin-right:30%; 
 
-}
-
-
+	}
 
 
-.hed th
-{
-	
-   margin-left:30px; 
-   padding-left:50px;
-    
-}
 
- td
-{
-	border:3px solid black;
-	/* padding-left:5%; */
-	/* padding-right:50%; */
-}
 
-th
-{
-	border:3px solid black;
-} 
+	.hed th
+	{
+		
+	margin-left:30px; 
+	padding-left:50px;
+		
+	}
 
-        </style>
+	td
+	{
+		border:3px solid black;
+		/* padding-left:5%; */
+		/* padding-right:50%; */
+	}
+
+	th
+	{
+		border:3px solid black;
+	} 
+
+			</style>
 
     
         </head>
@@ -86,7 +86,7 @@ th
 						    <h3 class="mb-3"></h3>
 						    <div class="row gx-5 gy-3">
 						        <div class="col-12 col-lg-9">
-		<h2> Panding Requests</h2>
+		<h2><center style="padding-left:30%;"> Panding Requests</center></h2>
 		
 		<?php
 		
@@ -105,7 +105,7 @@ th
 				<th><center>Department</center></th>
 				<th><center>Course</center></th>
 				<th><center>Email</center></th>
-				<th><center>Cesignation</center></th>
+				<th><center>Designation</center></th>
 				<th><center>Connection type</center></th>
 				<th><center>Choice</center></th>
 				
@@ -194,3 +194,24 @@ th
 
 
 ?>
+
+</div>
+
+	</div>
+	
+	<div>
+									</div>
+							    </div><!--//col-->
+							    <div class="col-12 col-lg-3">
+						
+							    </div><!--//col-->
+						    </div><!--//row-->
+						    
+					    </div><!--//app-card-body-->
+					    
+				    </div><!--//inner-->
+			    </div><!--//app-card-->
+				    
+			    
+		    </div><!--//container-fluid-->
+	    </div><!--//app-content-->

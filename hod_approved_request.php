@@ -39,7 +39,7 @@ include 'header.php';
     margin-right: 470px;
 	 */
 	/* padding-right:1%; */
-	margin-right:30%; 
+	/* margin-left:1%;  */
 
 }
 
@@ -54,8 +54,8 @@ include 'header.php';
 td
 {
 	border:3px solid black;
-	padding-left:50px;
-	padding-right:50px;
+	padding-left:25px;
+	padding-right:25px;
 }
 
 th
@@ -83,7 +83,7 @@ th
 						    <h3 class="mb-3"></h3>
 						    <div class="row gx-5 gy-3">
 						        <div class="col-12 col-lg-9">
-		<h2> Approved Requests</h2>
+		
 		
 		<?php
 		
@@ -92,6 +92,7 @@ th
 			
 		
 		?>
+		<h2> Approved Requests</h2>
         <div class='tab'>
 			<table cellpadding="7px">
 				<thead>

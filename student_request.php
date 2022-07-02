@@ -11,7 +11,7 @@ include 'header.php';
 	<head>
 
 		 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-	    <style>
+		 <style>
 
 .tab
 {
@@ -19,7 +19,13 @@ include 'header.php';
     margin-left:470px;
     margin-right: 470px;
 	 */
+	/* padding-right:1%; */
+	margin-right:30%; 
+
 }
+
+
+
 
 .hed th
 {
@@ -29,20 +35,20 @@ include 'header.php';
     
 }
 
-td
+ td
 {
 	border:3px solid black;
-	padding-left:50px;
-	padding-right:50px;
+	/* padding-left:5%; */
+	/* padding-right:50%; */
 }
 
 th
 {
 	border:3px solid black;
-}
+} 
 
         </style>
-    
+
     
         </head>
 	
@@ -65,18 +71,19 @@ th
 		<form id="rform" name="registrationform" onsubmit="return validation()" method="post" enctype="multipart/form-data">
 
 
-		<center>
-		<h2>Request</h2>
-</center>
+	
 		
 		<?php
+	
 		$result=mysqli_query($conn,$sql) or die("query failed");
-		if(mysqli_num_rows($result)>0);
+		if(mysqli_num_rows($result)>0)
 
 		{
 
 		?>
-		
+				<center>
+			<h2>Request</h2>
+	</center>
         <div class='tab'>
 
 		<center>
@@ -90,6 +97,7 @@ th
 				
 				<th><center>Connection type</center></th>
 				<th><center>Status</center></th>
+				<th><center>Details</center></th>
 				
                 </div>
 				
@@ -107,7 +115,7 @@ $num=0;
 $num=$num+1;
 if($row['approve']==0)
 {
-   $status="pandining";
+   $status="panding";
 }
 else if($row['approve']==1)
 {
@@ -130,12 +138,24 @@ else if($row['approve']==3)
 					<td><?php echo $row['email_id']; ?></td>
 					
 					<td><center><?php echo $row['connection_type']; ?></center></td>
-					<td><?php  echo $status;  ?>	             </td>
+					<td><?php  echo $status;  ?>	   </td>       
+				   
+					<td>
+
+				  <b> <a href="wifi_p.php">Click Here</a></b>
+					</td>
+</tr>
 					
-				</tr>
+		
 				
 				<?php
 				}
+		}
+
+		else
+		{
+			echo "	<center><h2>No Request</h2></center>";
+		
 		}
 			?>
 			</table>

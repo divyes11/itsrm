@@ -74,23 +74,35 @@ if(isset($_POST['Register']))
 	$txtemail=$_POST['txtemail'];
 	$pass=$_POST['txtpassword'];
 	
-  $ltype=strtoupper($_POST['ltype']);
+  $ltype=$_POST['ltype'];
   $dept=$_POST['deparment'];
- 
 
+
+
+ 
+if($ltype=='hod')
+{
     $sql1 = mysqli_query($conn,"select * from registration where usertype='hod' and depId='$dept'");
+
+	if (mysqli_num_rows($sql1)>0){
+		echo "<script>
+		
+			alert('this deparment HOD already existed');
+			
+		</script>";
+		// die('this deparment "HOD" already existed');
+
+	}
+}
+
+	
+
+	
 
 
 	
-		if (mysqli_num_rows($sql1)>0){
-			echo "<script>
-			
-				alert('this deparment HOD already existed');
-				
-			</script>";
-			// die('this deparment "HOD" already existed');
-
-		}else{
+	
+	
 			$str=mysqli_query($conn,"Select * from registration where email='$txtemail'");
 			if (mysqli_num_rows($str)>0)
 			{
@@ -107,13 +119,14 @@ if(isset($_POST['Register']))
 					window.location = \"home.php\";
 					</script>";
 			}
-		}
+		
+	}
 
 	
 	
     
 	
-}
+
 ?>
 					<div class="auth-form-container text-start mx-auto">
 						<form class="auth-form auth-signup-form" action="#" name="validationform" onsubmit="return validation()" method="post">     

@@ -116,23 +116,16 @@ $user_type=$_SESSION["type"];
                             </tr>
                         </div> -->
                         
-                    
-			   
                     <tr>
                         <td><label for="name">Full Name :</label></td>
-                        <td><input class="iptemt" type="text"  name="name"  value="<?php echo $name; ?>" placeholder="Enter full Name"></td>
+                        <td><input class="iptemt" type="text"  name="name"  value="<?php echo $name; ?>" placeholder="Enter full Name" required></td>
                     </tr>
-               
-
 			
                     <tr>
                         <!-- <td><label for="department_name">Deparment name</label></td> -->
-                        <td><input  class="iptemt" type="hidden"  name="deparment_name"  value="<?php echo $deparment_name; ?>" placeholder="Enter department Name"></td>
+                        <td><input  class="iptemt" type="hidden"  name="deparment_name"  value="<?php echo $deparment_name; ?>" placeholder="Enter department Name" required></td>
                     </tr>
-                
-
-			
-
+            
 				<?php
 				
 				if($user_type=='sevak' or  $user_type=='hod')
@@ -143,7 +136,7 @@ $user_type=$_SESSION["type"];
 				
                     <tr>
                         <td><label for="designation">Designation :</label></td>
-                        <td><input class="iptemt" type="text" name="designation" placeholder="Enter Designation"></td>
+                        <td><input class="iptemt" type="text" name="designation" placeholder="Enter Designation" required></td>
                     </tr>
                 
 
@@ -151,7 +144,7 @@ $user_type=$_SESSION["type"];
 				
                     <tr>
                         <!-- <td><label for="user_type">User type :</label></td> -->
-                        <td><input class="iptemt" type="hidden" name="user_type" placeholder="Enter user type"></td>
+                        <td><input class="iptemt" type="hidden" name="user_type" placeholder="Enter user type" required></td>
                     </tr>
                 
 
@@ -163,15 +156,32 @@ $user_type=$_SESSION["type"];
 
 				
                     <tr>
-                        <td><label for="designation">Course :</label></td>
-                        <td><input class="iptemt" type="text" name="course" placeholder="Enter course"></td>
+                        <td><label for="course">Course :</label></td>
+                       
+					
+				<td>
+					<select  name="course" id="course" style='color:black;' class="form-control signup-name" required>
+    				 <option  value="select">Select</option>
+		   <?php
+			 	$mquery="SELECT  `course`, `cname` FROM `tbl_course`";
+				//echo $mquery;
+				$getm=mysqli_query($conn,$mquery);
+				//$r=mysqli_fetch_array($getm);
+				//echo $r['department_name'];
+				while($r=mysqli_fetch_array($getm))
+				{
+		   			
+					echo "<option value=".$r['course'].">".$r["course"]."</option>";    
+			} 
+				?>
+		   </select> 
+		  
                     </tr>
-                
+					</td>
 
-				
                     <tr>
                         <td><label for="designation">Roll no :</label></td>
-                        <td><input class="iptemt" type="text" name="roll_no" placeholder="Enter roll_no"></td>
+                        <td><input class="iptemt" type="text" name="roll_no" placeholder="Enter roll_no" max="8" required></td>
                     </tr>
                 
 
@@ -181,49 +191,39 @@ $user_type=$_SESSION["type"];
 					
                     <tr>
                         <td><label for="residentaddress">Resident Address :</label></td>
-                        <td><input class="iptemt" type="text" name="residentaddress" placeholder="Resident Address"></td>
+                        <td><input class="iptemt" type="text" name="residentaddress" placeholder="Resident Address" required></td>
                     </tr>
-                
-                        
-						
-						
-						
+                		
                     <tr>
                         <td><label for="mobileno">Mobile NO :</label></td>
-                        <td><input class="iptemt" type="text" name="mobileno" placeholder="Mobile NO"></td>
+                        <td><input class="iptemt" type="text" name="mobileno" placeholder="Mobile NO" required></td>
                     </tr>
                 
                 
                     <tr>
                         <!-- <td><label for="emailid">Email Id :</label></td> -->
-                        <td><input class="iptemt" type="hidden" name="emailid" placeholder="Enter Email Id" value="<?php  echo $email;?>" ></td>
+                        <td><input class="iptemt" type="hidden" name="emailid" placeholder="Enter Email Id" value="<?php  echo $email;?>" required></td>
                     </tr>
                 
-				
                     <tr>
                         <td><label for="location">Office Location:</label></td>
                         <td>
-						<label>	<input class="rdb" type="radio" name="location" value="Ahmedabad" >Ahmedabad </label>
-						<label> <input class="rdb" type="radio" name="location" value="Randheja" >Randheja</label>
-						<label> <input class="rdb" type="radio" name="location" value="Sadara" >Sadara</td></label>
+						<label>	<input class="rdb" type="radio" name="location" value="Ahmedabad" required>Ahmedabad </label>
+						<label> <input class="rdb" type="radio" name="location" value="Randheja" required>Randheja</label>
+						<label> <input class="rdb" type="radio" name="location" value="Sadara" required>Sadara</td></label>
 						
                     </tr>
                 
-               
-			   	
                     <tr>
                         <td><label for="mac_address">Mac Address :</label></td>
-                        <td><input class="iptemt" type="text" name="mac_address" placeholder="mac address"></td>
-						<td><a href="find_mac_help.php"><input class="btn" type="button" name="help_mac" value="Help"></td>
+                        <td><input class="iptemt" type="text" name="mac_address" placeholder="mac address" required></td>
+						<td><a href="find_mac_help.php" target='_blank'><input class="btn" type="button" name="help_mac" value="Help"></td>
 
                     </tr>
                 
-                        
-						
-				
                             <tr>
                                 <td><label for="photo">Photo:</label></td>
-                                <td><input class ="image" type="file" class="form-control" name="image" placeholder="Upload Photo" reiqured></td>
+                                <td><input class ="image" type="file" class="form-control" name="image" placeholder="Upload Photo" required></td>
                             </tr>
                 	
 						
@@ -236,58 +236,39 @@ $user_type=$_SESSION["type"];
                     </table>
                 <!-- </div> -->
             </form>
+            
+			
             <script>
             
-	function validation()
-		{
-			let nmptr =/^[a-zA-Z]+$/;
-			let pass =/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+				function validation()
+					{
+						let nmptr =/^[a-zA-Z]+$/;
+						let pass =/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
 
-			let name = document.forms['registrationform']['name'].value;
-			let email= document.forms['registrationform']['username'].value;
-			let pa = document.forms['registrationform']['password'].value;
-			let rb= document.forms['registrationform']['usertype'].value;
+						let name = document.forms['registrationform']['name'].value;
+						let email= document.forms['registrationform']['username'].value;
+						let roll_no = document.forms['registrationform']['roll_no'].value;
+									
+						if(nmptr.test(name)==false){
+							alert("Name must be characters");
+							return(false);
+						}
 						
-			if(name=="")
-			{
-				alert('name is empty');
-				return false;
-			}
-			
-			if(nmptr.test(name)==false){
-				alert("Name must be characters");
-				return(false);
-			}
-			
-			if(email=="")
-			{
-				alert('email  is empty');
-				return false;
-			}
-			
-			if(pa=="")
-			{
-				alert('password is empty');
-				return false;
-			}
-			
-			if(pass.test(pa)==false){
-				alert("password must be lowercase,uppercase,number,Minimum 8 characters");
-                return false;
-			}
-			
-			if(rb==false)
-			{
-				alert('plese select student or sevak ');
-				return false;
-			}
-		}
-			
-	   </script>
-        <!-- </div> -->
-    <!-- </div> -->
-    <!-- <div id="footerdiv"><div> -->
-        
+						if(name.lenght<=40){
+							alert("Name must be characters less than 41");
+							return(false);
+						}
+					
+						if(roll_no.lenght<=9)
+						{
+							alert('maximum lenght of rollno is 8');
+							return false;
+						}
+					}
+						
+				</script>
+
+
     </body>
 </html>
 
@@ -296,14 +277,6 @@ $user_type=$_SESSION["type"];
 $qurey1="SELECT * FROM tbl_connection where email_id='$email' ";
 $res=mysqli_query($conn,$qurey1);
 
-
-
-
-	
-// $row=mysqli_fetch_assoc($result);
-
-	
-    
 
     if(isset($_POST['submit']))
 	{
@@ -371,7 +344,7 @@ $res=mysqli_query($conn,$qurey1);
 										 $file_ext=end($file_ext);
 										 #echo $file_ext;
 										 #echo $file_size;
-										 $extention=array("pdf","PDF","jpg");
+										 $extention=array("png","PNG");
 										 
 										 #if(in_array($file_ext,$extention)==true && $file_size < 18000)
 										 if(in_array($file_ext,$extention)==true)
@@ -383,7 +356,7 @@ $res=mysqli_query($conn,$qurey1);
 													if(move_uploaded_file($file_tmp,"images/".$file_name))
 													{
 														echo "<script>alert(' save image succesfully');</script>";
-														 $file_tmp1 = "C:/xampp1/htdocs/itsrm/images/".$file_name;
+														 $file_tmp1 = "images/".$file_name;
 														 
 														 
 														 
@@ -402,11 +375,11 @@ $res=mysqli_query($conn,$qurey1);
 														 $date=date('Y/m/d');
 														 if($user_type=='sevak'or $user_type=='hod')
 														 {
-															$sq ="INSERT INTO `tbl_connection`(`full_name`, `email_id`, `location`, `mobile_no`,`connection_type`, `date`, `approve`, `mac_address`,`profile_photo`,`designation`,`dep_name`,`user_type`) VALUES('$name','$emailid','$location','$mobileno','wifi','$date','0','$mac_address','$file_tmp1','$designation','$dep_name','$user_type')";
+															$sq ="INSERT INTO `tbl_connection`(`full_name`, `email_id`, `location`,`residentAddress`, `mobile_no`,`connection_type`, `date`, `approve`, `mac_address`,`profile_photo`,`designation`,`dep_name`,`user_type`) VALUES('$name','$emailid','$location','$residentaddress','$mobileno','wifi','$date','0','$mac_address','$file_tmp1','$designation','$dep_name','$user_type')";
 														 }
 														 else
 														 {
-															$sq ="INSERT INTO `tbl_connection`(`full_name`, `email_id`, `location`, `mobile_no`,`connection_type`, `date`, `approve`, `mac_address`,`profile_photo`,`course`,`roll_no`,`dep_name`,`user_type`,`end_date`) VALUES('$name','$emailid','$location','$mobileno','wifi','$date','0','$mac_address','$file_tmp1','$course','$roll_no','$dep_name','$user_type','$end_date')";
+															$sq ="INSERT INTO `tbl_connection`(`full_name`, `email_id`,`location`, `residentAddress`, `mobile_no`,`connection_type`, `date`, `approve`, `mac_address`,`profile_photo`,`course`,`roll_no`,`dep_name`,`user_type`,`end_date`) VALUES('$name','$emailid','$location','$residentaddress','$mobileno','wifi','$date','0','$mac_address','$file_tmp1','$course','$roll_no','$dep_name','$user_type','$end_date')";
 														 }
 														
 														 //echo $sql;
