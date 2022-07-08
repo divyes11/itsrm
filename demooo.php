@@ -1,4 +1,4 @@
-	<?php
+<?php
 
 include ('header.php');
 include ('connection.php');
@@ -29,244 +29,60 @@ $user_type=$_SESSION["type"];
 
         <title>Wifi Form</title>
 
-		<style>
-            .tr,td,table
-			{
-               /* padding : 8px; */
-			   border:1px solid black;
-			   color:black;
-			   font-weight:bold;
-			   width:100%;
-
-			}
-			.iptemt
-			{
-				/* height:100%; */
-				/* border:3px solid green ; */
-				width:100%;
-				background-color:withe;
-			}
-
-			.iptemt:hover
-			{
-				
-				border:3px solid  rgb(68,114,148) ;
-				/* width:380p/x; */
-				
-			}
-
-			.image:hover
-			{
-				background-color:black;
-			}
-
-		
-
-			.btn
-			{
-				border:2px solid green ;
-
-				background-color:#5A7670;
-			}
-			.btn:hover
-			{
-				border:5px solid black ;
-
-				
-			}
-
-			.rdb
-			{
-				/* height:15px; */
-				border:5px solid green ;
-				/* width:50px; */
-				
-			}
-
-			.rdb:hover
-			{
-				/* height:25px; */
-				border:30px solid green ;
-				/* width:50px; */
-				
-			}
-            #rform{
-				border: 1px solid black;
-				
-			}
-
-		</style>
+	
       
    
  
 </head>
 
 	
-    <body>
-        <!-- <div id="maindiv"> -->
-        <!-- <div id="formdiv"> -->
-            <form action="" id="rform" name="registrationform" onsubmit="return validation()" method="post" enctype="multipart/form-data" >
-            <!-- <div id="leble" style="background-color:white;padding:15px;" class="form-control"><h4></h4></div>    -->
-            <!-- <div> -->
-                    <table>
-                        <!-- <div>
-                            <tr>
-                                <td><label for="userid" class="label">UserId:</label></td>
-                                <td><input type="hiding" class="form-control" name="userid"><id/>
-                            </tr>
-                        </div> -->
-                        
+    
+<body>
+    <form action="" id="rform" name="registrationform" onsubmit="return validation()" method="post" enctype="multipart/form-data" >
+
+    <table>
                     <tr>
                         <td><label for="name">Full Name :</label></td>
                         <td><input class="iptemt" type="text"  name="name"  value="<?php echo $name; ?>" placeholder="Enter full Name" required></td>
                     </tr>
-			
+
                     <tr>
                         <!-- <td><label for="department_name">Deparment name</label></td> -->
                         <td><input  class="iptemt" type="hidden"  name="deparment_name"  value="<?php echo $deparment_name; ?>" placeholder="Enter department Name" required></td>
                     </tr>
-            
-				<?php
-				
+
+                <?php
 				if($user_type=='sevak' or  $user_type=='hod')
 				{
+                ?>
 
-				?>
-
-				
                     <tr>
                         <td><label for="designation">Designation :</label></td>
                         <td><input class="iptemt" type="text" name="designation" placeholder="Enter Designation" required></td>
                     </tr>
-                
 
-					
-				
                     <tr>
                         <!-- <td><label for="user_type">User type :</label></td> -->
                         <td><input class="iptemt" type="hidden" name="user_type" placeholder="Enter user type" required></td>
                     </tr>
-                
-
-					   
-					   <?php
-				}  
-				else{
-					   ?>
-
-				
-                    <tr>
-                        <td><label for="course">Course :</label></td>
-                       
-					
-				<td>
-					<select  name="course" id="course" style='color:black;' class="form-control signup-name" required>
-    				 <option  value="select">Select</option>
-		   <?php
-			 	$mquery="SELECT  `course`, `cname` FROM `tbl_course`";
-				//echo $mquery;
-				$getm=mysqli_query($conn,$mquery);
-				//$r=mysqli_fetch_array($getm);
-				//echo $r['department_name'];
-				while($r=mysqli_fetch_array($getm))
-				{
-		   			
-					echo "<option value=".$r['course'].">".$r["course"]."</option>";    
-			} 
-				?>
-		   </select> 
-		  
-                    </tr>
-					</td>
-
-                    <tr>
-                        <td><label for="designation">Roll no :</label></td>
-                        <td><input class="iptemt" type="text" name="roll_no" placeholder="Enter roll_no" max="8" required></td>
-                    </tr>
-                
-
-				<?php
-				}
-				?>
-					
-                    <tr>
-                        <td><label for="residentaddress">Resident Address :</label></td>
-                        <td><input class="iptemt" type="text" name="residentaddress" placeholder="Resident Address" required></td>
-                    </tr>
-                		
-                    <tr>
-                        <td><label for="mobileno">Mobile NO :</label></td>
-                        <td><input class="iptemt" type="text" name="mobileno" placeholder="Mobile NO" required></td>
-                    </tr>
-                
-                
-                    <tr>
-                        <!-- <td><label for="emailid">Email Id :</label></td> -->
-                        <td><input class="iptemt" type="hidden" name="emailid" placeholder="Enter Email Id" value="<?php  echo $email;?>" required></td>
-                    </tr>
-                
-                    <tr>
-                        <td><label for="location">Office Location:</label></td>
-                        <td>
-						<label>	<input class="rdb" type="radio" name="location" value="Ahmedabad" required>Ahmedabad </label>
-						<label> <input class="rdb" type="radio" name="location" value="Randheja" required>Randheja</label>
-						<label> <input class="rdb" type="radio" name="location" value="Sadara" required>Sadara</td></label>
-						
-                    </tr>
-                
-                    <tr>
-                        <td><label for="mac_address">Mac Address :</label></td>
-                        <td><input class="iptemt" type="text" name="mac_address" placeholder="mac address" required></td>
-						<td><a href="find_mac_help.php" target='_blank'><input class="btn" type="button" name="help_mac" value="Help"></td>
-
-                    </tr>
-                
-                            <tr>
-                                <td><label for="photo">Photo:</label></td>
-                                <td><input class ="image" type="file" class="form-control" name="image" placeholder="Upload Photo" required></td>
-                            </tr>
-                							
-                            <tr>
-                                <td><center><input class="btn" type="submit" id="rsubmit"  name="submit" value="SUBMIT"></center></td>
-                            </tr>
-                         
-                    </table>
-                <!-- </div> -->
-            </form>
-            
-            <script>
-            
-				function validation()
-					{
-						let nmptr =/^[a-zA-Z]+$/;
-						let pass =/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
-
-						let name = document.forms['registrationform']['name'].value;
-						let email= document.forms['registrationform']['username'].value;
-						let roll_no = document.forms['registrationform']['roll_no'].value;
-									
-						if(nmptr.test(name)==false){
-							alert("Name must be characters");
-							return(false);
-						}
-						
-						if(name.lenght<=40){
-							alert("Name must be characters less than 41");
-							return(false);
-						}
-					
-						if(roll_no.lenght<=9)
-						{
-							alert('maximum lenght of rollno is 8');
-							return false;
-						}
-					}
-						
-				</script>
 
 
-    </body>
-</html>
+                <?php
+                }
+                else
+                {
+                ?>
+
+
+                <?php
+                }
+                ?>
+
+
+                    
+
+    </table>
+</body>
 
 <?php
 

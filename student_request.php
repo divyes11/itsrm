@@ -1,7 +1,7 @@
 <?php
 
 include 'header.php';
- include 'connection.php';
+include 'connection.php';
  $email=$_SESSION['uid'];
  $sql="SELECT * FROM tbl_connection  where email_id='$email'";
  
@@ -141,8 +141,19 @@ else if($row['approve']==3)
 					<td><?php  echo $status;  ?>	   </td>       
 				   
 					<td>
+						<?PHP
+						if( $row['connection_type']=='wifi')
+						{
+							echo '<b> <a href="wifi_p.php">Click Here</a></b>';
+						}
+						// else if( $row['connection_type']=='internet')
+						// {
+						// 	echo '<b> <a href="wifi_p.php">Click Here</a></b>';
+						// }
 
-				  <b> <a href="wifi_p.php">Click Here</a></b>
+						?>
+
+				  
 					</td>
 </tr>
 					

@@ -12,19 +12,6 @@ include 'header.php';
 //  $result2=mysqli_query($conn,$sql2) or die("query failed");
  
  
-
- 
- 
-  
- 
- 
- 
- 
- 
- 
- 
- 
-
 ?>
 
 <html>
@@ -42,20 +29,25 @@ include 'header.php';
 	/* margin-left:1%;  */
 
 }
+#table,th,td{
+	border:3px solid red;
+    /* margin-left:470px; */
+    margin-right: 50px;
+}
 
 .hed th
 {
 	
-   margin-left:30px; 
-   padding-left:50px;
+   /* margin-left:30px;  */
+   /* padding-left:50px; */
     
 }
 
 td
 {
 	border:3px solid black;
-	padding-left:25px;
-	padding-right:25px;
+	padding-left:10px;
+	padding-right:5px;
 }
 
 th
@@ -94,7 +86,7 @@ th
 		?>
 		<h2> Approved Requests</h2>
         <div class='tab'>
-			<table cellpadding="7px">
+			<table id="table" cellpadding="1px">
 				<thead>
 				<div class="hed">
 				<th><center>User type</center></th>	

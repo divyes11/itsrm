@@ -12,19 +12,6 @@ include 'header.php';
 //  $result2=mysqli_query($conn,$sql2) or die("query failed");
  
  
-
- 
- 
-  
- 
- 
- 
- 
- 
- 
- 
- 
-
 ?>
 
 <html>
@@ -64,7 +51,7 @@ th
 }
 
         </style>
-   
+    
     
         </head>
 	

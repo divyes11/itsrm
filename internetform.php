@@ -211,7 +211,7 @@ include 'connection.php';
         $officelocation =strtoupper($_POST['location']);
         $departmentname =strtoupper($_POST['departmentname']);
         $extentionno = $_POST['extentionno'];
-        $mobileno = $_POST['	'];
+        $mobileno = $_POST['mobileno'];
         $reason =strtoupper($_POST['reason']);
         $user_type=strtoupper($_SESSION["type"]);
         $deparment_name=$_SESSION["depId"];
