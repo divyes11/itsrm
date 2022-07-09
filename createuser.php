@@ -95,6 +95,26 @@ if($ltype=='hod')
 		// die('this deparment "HOD" already existed');
 
 	}
+	else
+	{
+		
+		$str=mysqli_query($conn,"Select * from registration where email='$txtemail'");
+		if (mysqli_num_rows($str)>0)
+		{
+		echo "<h4><font color=red>Error: - This email is Already exit. - ".$txtemail." <br/>Try another emailid.</font></h4>";	
+		}
+		else
+		{       
+			$query="insert into registration(`depId`, `name`, `email`, `password`, `usertype`,`branch`) values('$dept','$fname','$txtemail','$pass','$ltype','$branch')";
+			mysqli_query($conn,$query) or die("Could Not Perform the Query");
+		
+			include ('mail.php');
+			echo "<script type=\"text/javascript\">
+				alert(\"Registration done successfully.\");
+				window.location = \"home.php\";
+				</script>";
+		}
+	}
 }
 else
 {
