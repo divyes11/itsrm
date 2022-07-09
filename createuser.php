@@ -76,15 +76,17 @@ if(isset($_POST['Register']))
 	
   $ltype=$_POST['ltype'];
   $dept=$_POST['deparment'];
+  $branch=$_POST['branch'];
 
 
 
  
 if($ltype=='hod')
 {
-    $sql1 = mysqli_query($conn,"select * from registration where usertype='hod' and depId='$dept'");
+    $sql1 = mysqli_query($conn,"select * from registration where usertype='hod' and branch='$branch'  and depId='$dept'");
 
-	if (mysqli_num_rows($sql1)>0){
+	if (mysqli_num_rows($sql1)>0)
+	{
 		echo "<script>
 		
 			alert('this deparment HOD already existed');
@@ -94,6 +96,8 @@ if($ltype=='hod')
 
 	}
 }
+else
+{
 
 	
 
@@ -110,7 +114,7 @@ if($ltype=='hod')
 			}
 			else
 			{       
-				$query="insert into registration(`depId`, `name`, `email`, `password`, `usertype`) values('$dept','$fname','$txtemail','$pass','$ltype')";
+				$query="insert into registration(`depId`, `name`, `email`, `password`, `usertype`,`branch`) values('$dept','$fname','$txtemail','$pass','$ltype','$branch')";
 				mysqli_query($conn,$query) or die("Could Not Perform the Query");
 			
 				include ('mail.php');
@@ -119,6 +123,7 @@ if($ltype=='hod')
 					window.location = \"home.php\";
 					</script>";
 			}
+		}
 		
 	}
 
@@ -132,7 +137,7 @@ if($ltype=='hod')
 						<form class="auth-form auth-signup-form" action="#" name="validationform" onsubmit="return validation()" method="post">     
 						 <div class="email mb-3">
 								User Type
-								 <select name="ltype" id="ltype" style='color:black;'class="form-control signup-name"  onchange="change_s()" required>
+	<select name="ltype" id="ltype" style='color:black;'class="form-control signup-name"  onchange="change_s()" required>
           <option value="">Select</option>		
 		      <option value="student">Student</option>
 		      <option value="sevak">Sevak</option>
@@ -140,6 +145,18 @@ if($ltype=='hod')
 		      			 
    </select> 
 							</div>
+							<!-- this is starting part -->
+							<div class="email mb-3">
+								 select branch
+	<select name="branch" id="branch" style='color:black;'class="form-control signup-name"  onchange="change_s()" required>
+          <option value="">Select</option>		
+		      <option value="ahemdabad">ahemdabad</option>
+		      <option value="sadra">sadra</option>
+			  <option value="randheja">randheja</option>
+		      			 
+   </select> 
+							</div>
+							 <!-- and it is ending -->
 							<div class="email mb-3">
 								Deparment :
 	<select  name="deparment" id="deparment" style='color:black;' class="form-control signup-name" required>

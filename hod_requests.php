@@ -4,13 +4,18 @@
 include 'header.php';
  include 'connection.php';
  $department_id=$_SESSION["dip"];
+ $branch=$_SESSION["branch"];
  
- $sql="SELECT  * FROM tbl_connection JOIN registration  WHERE tbl_connection.email_id=registration.email   and registration.depId=$department_id and   approve=0";
+//  $sql="SELECT  * FROM tbl_connection JOIN registration  WHERE registration.branch=$branch and tbl_connection.email_id=registration.email   and registration.depId=$department_id and   approve=0";
+$sql="SELECT  * FROM tbl_connection JOIN registration  WHERE tbl_connection.email_id=registration.email   and registration.depId=$department_id and  branch='$branch' and approve=0";
  $result=mysqli_query($conn,$sql) or die("query failed");
 
 //  $sql2="SELECT * FROM tbl_department WHERE dep_id=$department_id";
 //  $result2=mysqli_query($conn,$sql2) or die("query failed");
  
+
+
+// Warning: Undefined array key "branch" in C:\xampp1\htdocs\itsrm\hod_requests.php on line 7
  
 
  
@@ -108,6 +113,7 @@ include 'header.php';
 				<th><center>Designation</center></th>
 				<th><center>Connection type</center></th>
 				<th><center>Choice</center></th>
+
 				
                 </div>
 				

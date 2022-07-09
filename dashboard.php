@@ -5,7 +5,7 @@ include("connection.php");
 $name=$_SESSION["name"];
 $department=$_SESSION["depId"];
 $department_id=$_SESSION["dip"];
-
+$branch=$_SESSION["branch"];
 
 ?>
     <div class="app-wrapper">
@@ -21,7 +21,7 @@ $department_id=$_SESSION["dip"];
 						    <h3 class="mb-3">Welcome <?php echo $name;?></h3>
 						    <div class="row gx-5 gy-3">
 						        <div class="col-12 col-lg-9">
-							        Head of the <?php echo $department; ?> Department
+							        Head of the <?php echo $department; ?> Department (<?php echo $branch; ?>)
 							        <div>
 									</div>
 							    </div><!--//col-->
@@ -42,7 +42,7 @@ $department_id=$_SESSION["dip"];
 						    <div class="app-card-body p-3 p-lg-4">
 
 							<?php
-							$query="SELECT * FROM tbl_connection JOIN registration  WHERE tbl_connection.email_id=registration.email  and registration.depId=$department_id and  approve=0";
+							$query="SELECT  * FROM tbl_connection JOIN registration  WHERE tbl_connection.email_id=registration.email   and registration.depId=$department_id and  branch='$branch' and approve=0";
 							$con=mysqli_query($conn,$query);
 
 							?>
@@ -62,7 +62,7 @@ $department_id=$_SESSION["dip"];
 						    <div class="app-card-body p-3 p-lg-4">
 
 							<?php
-							$query="SELECT * FROM tbl_connection JOIN registration  WHERE tbl_connection.email_id=registration.email  and registration.depId=$department_id and  approve=1";
+							$query="SELECT * FROM tbl_connection JOIN registration  WHERE tbl_connection.email_id=registration.email  and registration.depId=$department_id and  branch='$branch' and  approve=1";
 							$con=mysqli_query($conn,$query);
 
 							?>
@@ -84,7 +84,7 @@ $department_id=$_SESSION["dip"];
 
 
 							<?php
-							$query="SELECT * FROM tbl_connection JOIN registration  WHERE tbl_connection.email_id=registration.email  and registration.depId=$department_id and  approve=2";
+							$query="SELECT * FROM tbl_connection JOIN registration  WHERE tbl_connection.email_id=registration.email and  branch='$branch' and registration.depId=$department_id and  approve=2";
 							$con=mysqli_query($conn,$query);
 
 							?>

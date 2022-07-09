@@ -56,7 +56,8 @@ include "connection.php";
 		   }
 	       else
 	       {
-                  $_SESSION["login"]=$arr['email'];						  
+                  $_SESSION["login"]=$arr['email'];	
+				   $_SESSION["branch"]=$arr['branch'];						  
                    $_SESSION["type"]= $arr['usertype'];
                   $_SESSION["name"]= $arr['name'];
                    $_SESSION["uid"]= $userID;

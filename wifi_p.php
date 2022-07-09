@@ -1,5 +1,6 @@
 <?php 
     include 'header.php';
+   $user=$_SESSION['type'];
 ?>
 <html>
     <head>
@@ -89,10 +90,15 @@
                     <td><label for="name">Full Name :</label></td>
                     <td><lable></lable><?php echo $r['full_name']; ?></td>
                 </tr>
+                <?php if($user!='student') 
+                
+                {?>
                 <tr>
                     <td><label for="name">Designation :</label></td>
                     <td><lable></lable><?php echo $r['designation']; ?></td>
                 </tr>
+                <?php } ?>
+
                 <tr>
                     <td><label for="name">Deparment Name :</label></td>
                     <td><lable></lable><?php echo $r['dep_name']; ?></td>
