@@ -5,7 +5,7 @@ include 'header.php';
  include 'connection.php';
  $department_id=$_SESSION["dip"];
  
- $sql="SELECT  * FROM tbl_connection JOIN registration  WHERE tbl_connection.email_id=registration.email   and registration.depId=$department_id and   approve=1";
+ $sql="SELECT  * FROM tbl_connection JOIN registration  WHERE tbl_connection.email_id=registration.email  and   approve=1";
  $result=mysqli_query($conn,$sql) or die("query failed");
 
 //  $sql2="SELECT * FROM tbl_department WHERE dep_id=$department_id";
