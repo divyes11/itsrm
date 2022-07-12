@@ -5,7 +5,7 @@ include ('connection.php');
 
 
 
-$sql="SELECT * FROM `tbl_department`";
+$sql="SELECT * FROM `tbl_course`";
 $result=mysqli_query($conn,$sql) or die("query failed")
 
 ?>
@@ -21,13 +21,13 @@ $result=mysqli_query($conn,$sql) or die("query failed")
 			    <div class="app-card alert alert-dismissible shadow-sm mb-4 border-left-decoration" role="alert">
 				    <div class="inner">
 					    <div class="app-card-body p-3 p-lg-4">
-						    <h3 class="mb-3">Add Department</h3>
+						    <h3 class="mb-3">Delete Course</h3>
 						    <div class="row gx-5 gy-3">
 						        <div class="col-12 col-lg-9">
 							        
 									
 
-        <title>Add Department</title>
+        <title>Delete Course</title>
         <style>
 
 table,th,td
@@ -64,9 +64,6 @@ th
     margin-left:80%; 
     
 }
-/* #rform{
-    float:left;
-} */
         </style>
    
  
@@ -89,12 +86,12 @@ th
                         
 			
                     <tr>
-                        <td><B><label for="department_name">  Deparment name :</label></B></td>
-                        <td><input  class="iptemt" type="TEXT"  name="deparment_name"   placeholder="Enter department Name"></td>
+                        <td><B><label for="department_name">  Course Id :</label></B></td>
+                        <td><input  class="iptemt" type="TEXT"  name="course_Id"   placeholder="Enter Course Id"></td>
                     
                 
                             
-                                <td><center><input style="background-color:green" class="btn" type="submit" id="rsubmit"  name="submit" value="SUBMIT"></center></td>
+                                <td><center><input class="btn" type="submit" id="rsubmit"  name="submit" value="SUBMIT"></center></td>
                             </tr>
 			
 
@@ -108,11 +105,11 @@ th
 
         <div class='tab'>
 			<table id="tbladpt" cellpadding="7px">
-            <h2 style=" margin-left:85%; "> Departments</h2>
+            <h2 style=" margin-left:85%; "> Course</h2>
 				<thead>
 				<div class="hed">
-				<th><center>Department ID</center></th>	
-				<th><center>Department Name</center></th>
+				<th><center>Course ID</center></th>	
+				<th><center>Course Name</center></th>
 				
 				
                 </div>
@@ -126,8 +123,8 @@ th
 				?>
 
 				<tr>
-					<td><?php echo $row['dep_id']; ?></td>
-					<td><?php echo $row['dep_name']; ?></td>
+					<td><?php echo $row['ID']; ?></td>
+					<td><?php echo $row['course']; ?></td>
 			
 	
 				</tr>
@@ -175,14 +172,14 @@ else
 
     if(isset($_POST['submit']))
 	{
-        $department_name =$_POST['deparment_name'];
+        $course_id =$_POST['course_Id'];
 
-        $qurey="INSERT INTO `tbl_department`( `dep_name`) VALUES ('$department_name')";
+        $qurey="DELETE FROM `tbl_course` WHERE ID=$course_id";
         
 
         if($res=mysqli_query($conn,$qurey))
         {
-            echo "<script>alert('department  save succesfully');</script>";
+            echo "<script>alert('Course  Deleted');</script>";
         }
        
 	}

@@ -84,19 +84,21 @@ th
 			
 		
 		?>
-		<h2> Approved Requests</h2>
+
+		<h2><center style="padding-left:30%;">Approved Requests</center></h2>
         <div class='tab'>
 			<table id="table" cellpadding="1px">
 				<thead>
 				<div class="hed">
-				<th><center>User type</center></th>	
-				<th><center>Roll no</center></th>
+				<th><center>User Type</center></th>	
+				<th><center>Roll No</center></th>
 				<th><center>Name</center></th>
 				<th><center>Department</center></th>
 				<th><center>Course</center></th>
-				<th><center>Email</center></th>
-				<th><center>Cesignation</center></th>
-				<th><center>Connection type</center></th>
+				<!-- <th><center>Email</center></th> -->
+				<th><center>Designation</center></th>
+				<th><center>Connection Type</center></th>
+				<th><center>Detail</center></th>
 				<th><center>Choice</center></th>
 				
                 </div>
@@ -115,9 +117,11 @@ th
 					<td><?php echo $row['full_name']; ?></td>
 					<td><?php echo $row['dep_name']; ?></td>
 					<td><?php echo $row['course']; ?></td>
-					<td><?php echo $row['email_id']; ?></td>
+					<!-- <td><?php //echo $row['email_id']; ?></td> -->
 					<td><?php echo $row['designation']; ?></td>
 					<td><?php echo $row['connection_type']; ?></td>
+
+					<td><a href="details.php?email=<?php echo $row['email_id'];?>"><b><input type="submit" name="detail" value="detail"></a></td>				
 					
 					<form action="" method="post">
 						 

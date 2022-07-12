@@ -1,6 +1,7 @@
 <?php 
     include 'header.php';
-    $email=$_SESSION["login"];
+//    $user=$_SESSION['type'];
+   $email=$_GET['email'];
 ?>
 <html>
     <head>
@@ -19,6 +20,8 @@
                 border:2px solid black;
                 /* width:110%; */
                 
+               
+
             }
 
             /* .demo
@@ -38,7 +41,6 @@
              } */
             #gdiv{
                 float:left;
-                
                 /* border:1px solid red; */
             }
             #imgdiv{
@@ -68,7 +70,7 @@
      Department of Computer Science
      Gujarat Vidyapith, Ahmedabad – 380 014
      Phone no : 40016414
-    <b style="color:black;">Internet Connection Application Form                    </b>
+             <b>Wifi Connection Application Form             </b>
 			<pre>
             </div>
             <?php 
@@ -81,7 +83,7 @@
                 }
             
                 ?>
-            <div id="imgdiv"><img src="<?php echo $r['profile_photo']; ?>" width="110" height="110"></div>
+            <div id="imgdiv"><img src="<?php echo $r['profile_photo']; ?>" alt="Girl in a jacket" width="110" height="110"></div>
            </div>
             <table>
                 
@@ -90,17 +92,27 @@
                     <td><label for="name">Full Name :</label></td>
                     <td><lable></lable><?php echo $r['full_name']; ?></td>
                 </tr>
+
+                <?php
+                if($r['user_type'] !='student')
+                {
+                    ?>
                 <tr>
                     <td><label for="name">Designation :</label></td>
-                    <td><lable></lable><?php echo $r['designation']; ?></td>
+                    <td><lable></lable><?php echo $r['designation'] ; ?></td>
                 </tr>
+                <?php 
+                }
+                 ?>
+
+
                 <tr>
                     <td><label for="name">Deparment Name :</label></td>
                     <td><lable></lable><?php echo $r['dep_name']; ?></td>
                 </tr>
                 <tr>
-                    <td><label for="extentionNo">Extention No :</label></td>
-                    <td><lable></lable><?php echo $r['extension_no']; ?></td>
+                    <td><label for="rAddress">Resident Address :</label></td>
+                    <td><lable></lable><?php echo $r['residentAddress']; ?></td>
                 </tr>
                 <tr>
                     <td><label for="Mobile">Mobile No :</label></td>
@@ -112,7 +124,7 @@
                 </tr>
 
                 <tr>
-                    <td><label for="email">Reason for internet requirements:</label></td>
+                    <td><label for="email">Site Location :</label></td>
                     <td><lable></lable><?php echo $r['location']; ?></td>
                 </tr>
 
@@ -121,4 +133,3 @@
         </form>
     </body>
 </html>
-

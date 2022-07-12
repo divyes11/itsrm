@@ -1,6 +1,5 @@
 <?php
 
-
 include 'header.php';
  include 'connection.php';
  $department_id=$_SESSION["dip"];
@@ -11,32 +10,32 @@ include 'header.php';
 //  $sql2="SELECT * FROM tbl_department WHERE dep_id=$department_id";
 //  $result2=mysqli_query($conn,$sql2) or die("query failed");
  
- 
-
- 
- 
-  
- 
- 
- 
- 
- 
- 
- 
- 
-
 ?>
 
 <html>
 	<head>
+	<div class="app-wrapper">
+	    
+	    <div class="app-content pt-3 p-md-3 p-lg-4">
+		    <div class="container-xl">
+			    
+			    <!-- <h1 class="app-page-title">wifi application</h1> -->
+			    
+			    <div class="app-card alert alert-dismissible shadow-sm mb-4 border-left-decoration" role="alert">
+				    <div class="inner">
+					    <div class="app-card-body p-3 p-lg-4">
+						    <!-- <h3 class="mb-3">Add Department</h3> -->
+						    <div class="row gx-5 gy-3">
+						        <div class="col-12 col-lg-9">
+
 		 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	    <style>
 
 .tab
 {
-    border:3px solid black;
-    margin-left:300px;
-    margin-right:300px;
+    /* border:3px solid black; */
+    /* margin-left:300px; */
+    /* margin-right:300px; */
 }
 
 .hed th
@@ -45,13 +44,16 @@ include 'header.php';
    padding-left:50px;
     
 }
+table,th,td{
+	border:1px solid black;
+}
         </style>
     
     
         </head>
 	
 		<body>
-		<h2>Requests</h2>
+		
 		
 		<?php
 		
@@ -60,6 +62,8 @@ include 'header.php';
 			
 		
 		?>
+	<center><h1>Requests</h1></center>
+			
         <div class='tab'>
 			<table cellpadding="7px">
 				<thead>
@@ -77,7 +81,7 @@ include 'header.php';
 
 
 				<th>Connection type</th>
-				<th>Choice</th>
+				<!-- <th>Choice</th> -->
 				
                 </div>
 				
@@ -106,9 +110,9 @@ include 'header.php';
 					<form action="" method="post">
 						 
 								
-					<td><input type="submit" name="APROVE" value="Provide"></td>
+					<!-- <td><input type="submit" name="APROVE" value="Provide"></td> -->
 					
-					<td><input type="hidden" name="userid" value = "<?php echo $row['user_id']; ?>"></td>
+					<input type="hidden" name="userid" value = "<?php echo $row['user_id']; ?>">
 							
 						 
 						 
@@ -135,7 +139,21 @@ include 'header.php';
 
 			</table>
     </div>
-			
+			</div>
+							    </div><!--//col-->
+							    <div class="col-12 col-lg-3">
+						
+							    </div><!--//col-->
+						    </div><!--//row-->
+						    
+					    </div><!--//app-card-body-->
+					    
+				    </div><!--//inner-->
+			    </div><!--//app-card-->
+				    
+			    
+		    </div><!--//container-fluid-->
+	    </div><!--//app-content-->
 		</body>
 
 </html>

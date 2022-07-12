@@ -248,7 +248,7 @@ include 'connection.php';
 													if(move_uploaded_file($file_tmp,"images/".$file_name))
 													{
 														echo "<script>alert(' Save image succesfully');</script>";
-														 $file_tmp1 = "C:/xampp1/htdocs/itsrm/images/".$file_name;
+														 $file_tmp1 = "images/".$file_name;
 														 
 														 
 														 $date=date('Y/m/d');

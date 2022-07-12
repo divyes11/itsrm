@@ -1,6 +1,7 @@
 <?php 
     include 'header.php';
-    $email=$_SESSION["login"];
+//    $user=$_SESSION['type'];
+   $email=$_GET['email'];
 ?>
 <html>
     <head>
@@ -19,6 +20,8 @@
                 border:2px solid black;
                 /* width:110%; */
                 
+               
+
             }
 
             /* .demo
@@ -38,7 +41,6 @@
              } */
             #gdiv{
                 float:left;
-                
                 /* border:1px solid red; */
             }
             #imgdiv{
@@ -68,20 +70,20 @@
      Department of Computer Science
      Gujarat Vidyapith, Ahmedabad – 380 014
      Phone no : 40016414
-    <b style="color:black;">Internet Connection Application Form                    </b>
+             <b>Email Creation Application Form             </b>
 			<pre>
             </div>
             <?php 
                  include 'connection.php';
                
                  $sdfd="select * from tbl_connection where email_id='$email' ";
-                
+                echo $email;
                  if($result=mysqli_query($conn,$sdfd)){
                     $r=mysqli_fetch_array($result);
                 }
             
                 ?>
-            <div id="imgdiv"><img src="<?php echo $r['profile_photo']; ?>" width="110" height="110"></div>
+            <div id="imgdiv"><img src="<?php echo $r['profile_photo']; ?>"  width="110" height="110"></div>
            </div>
             <table>
                 
@@ -90,30 +92,25 @@
                     <td><label for="name">Full Name :</label></td>
                     <td><lable></lable><?php echo $r['full_name']; ?></td>
                 </tr>
-                <tr>
-                    <td><label for="name">Designation :</label></td>
-                    <td><lable></lable><?php echo $r['designation']; ?></td>
-                </tr>
+
+
                 <tr>
                     <td><label for="name">Deparment Name :</label></td>
                     <td><lable></lable><?php echo $r['dep_name']; ?></td>
                 </tr>
+                
                 <tr>
-                    <td><label for="extentionNo">Extention No :</label></td>
-                    <td><lable></lable><?php echo $r['extension_no']; ?></td>
+                    <td><label for="Mobile">Preferred Email Address:</label></td>
+                    <td><lable></lable><?php echo $r['preffred_email']; ?></td>
                 </tr>
                 <tr>
-                    <td><label for="Mobile">Mobile No :</label></td>
-                    <td><lable></lable><?php echo $r['mobile_no']; ?></td>
-                </tr>
-                <tr>
-                    <td><label for="email">Email :</label></td>
+                    <td><label for="email">Given Email Id :</label></td>
                     <td><lable></lable><?php echo $r['email_id']; ?></td>
                 </tr>
 
                 <tr>
-                    <td><label for="email">Reason for internet requirements:</label></td>
-                    <td><lable></lable><?php echo $r['location']; ?></td>
+                    <td><label for="email">AlterNet Email Address :</label></td>
+                    <td><lable></lable><?php echo $r['alternet_email']; ?></td>
                 </tr>
 
                
@@ -121,4 +118,3 @@
         </form>
     </body>
 </html>
-

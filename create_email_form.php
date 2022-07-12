@@ -79,7 +79,7 @@ $user_type=$_SESSION["type"];
 				
                 <div>
                     <tr>
-                        <td><label for="emailid">given Email Id :</label></td>
+                        <td><label for="emailid">Given Email Id :</label></td>
                         <td><input class="iptemt" type="email" name="emailid" placeholder="Enter Email Id" value="<?php  echo $email;?>" required></td>
                     </tr>
                 </div>

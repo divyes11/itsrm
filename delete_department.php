@@ -62,7 +62,13 @@ th
 {
 	border:3px solid black;
 }
-
+#tbladpt{
+    margin-left:100%; 
+    
+}
+#rform{
+    float:left;
+}
         </style>
    
  
@@ -95,7 +101,7 @@ th
                     
                 
                             
-                                <td><center><input class="btn" type="submit" id="rsubmit"  name="submit" value="SUBMIT"></center></td>
+                                <td><center><input class="btn" style="background-color:green" type="submit" id="rsubmit"  name="submit" value="SUBMIT"></center></td>
                             </tr>
 			
 
@@ -106,9 +112,10 @@ th
                             {
                             
                             ?>
-<h2> All Departments</h2>
+
         <div class='tab'>
-			<table cellpadding="7px">
+			<table id="tbladpt" cellpadding="7px">
+            <h2 style=" margin-left:100%;">Departments</h2>
 				<thead>
 				<div class="hed">
 				<th><center>Department ID</center></th>	

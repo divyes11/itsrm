@@ -16,7 +16,7 @@ include 'header.php';
 		 <style>
 
 
-
+	
 .hed th
 {
 	
@@ -76,9 +76,10 @@ th
 				<th><center>Name</center></th>
 				<th><center>Department</center></th>
 				<th><center>Course</center></th>
-				<th><center>Email</center></th>
+				<!-- <th><center>Email</center></th> -->
 				<th><center>Designation</center></th>
 				<th><center>Connection type</center></th>
+				<th><center>Detail</center></th>
 				<th><center>Choice</center></th>
 				
                 </div>
@@ -97,9 +98,10 @@ th
 					<td><?php echo $row['full_name']; ?></td>
 					<td><?php echo $row['dep_name']; ?></td>
 					<td><?php echo $row['course']; ?></td>
-					<td><?php echo $row['email_id']; ?></td>
+					<!-- <td><?php //echo $row['email_id']; ?></td> -->
 					<td><?php echo $row['designation']; ?></td>
 					<td><?php echo $row['connection_type']; ?></td>
+					<td><a href="details.php?email=<?php echo $row['email_id'];?>"><b><input type="submit" name="detail" value="detail"></a></td>				
 					
 					<form action="" method="post">
 						 

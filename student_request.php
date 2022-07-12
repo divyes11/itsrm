@@ -115,7 +115,7 @@ $num=0;
 $num=$num+1;
 if($row['approve']==0)
 {
-   $status="panding";
+   $status="pending";
 }
 else if($row['approve']==1)
 {
@@ -146,10 +146,14 @@ else if($row['approve']==3)
 						{
 							echo '<b> <a href="wifi_p.php">Click Here</a></b>';
 						}
-						// else if( $row['connection_type']=='internet')
-						// {
-						// 	echo '<b> <a href="wifi_p.php">Click Here</a></b>';
-						// }
+						else if( $row['connection_type']=='email')
+						{
+							echo '<b> <a href="exp2.php">Click Here</a></b>';
+						}
+						else if( $row['connection_type']=='internet')
+						{
+							echo '<b> <a href="internet_p.php">Click Here</a></b>';
+						}
 
 						?>
 

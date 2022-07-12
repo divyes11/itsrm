@@ -7,29 +7,14 @@ include 'header.php';
  $branch=$_SESSION["branch"];
  
 //  $sql="SELECT  * FROM tbl_connection JOIN registration  WHERE registration.branch=$branch and tbl_connection.email_id=registration.email   and registration.depId=$department_id and   approve=0";
-$sql="SELECT  * FROM tbl_connection JOIN registration  WHERE tbl_connection.email_id=registration.email   and registration.depId=$department_id and  branch='$branch' and approve=0";
+$sql="SELECT  * FROM tbl_connection JOIN registration  WHERE tbl_connection.email_id=registration.email  and   approve=1";
  $result=mysqli_query($conn,$sql) or die("query failed");
 
 //  $sql2="SELECT * FROM tbl_department WHERE dep_id=$department_id";
 //  $result2=mysqli_query($conn,$sql2) or die("query failed");
  
-
-
 // Warning: Undefined array key "branch" in C:\xampp1\htdocs\itsrm\hod_requests.php on line 7
  
-
- 
- 
-  
- 
- 
- 
- 
- 
- 
- 
- 
-
 ?>
 
 <html>
@@ -100,22 +85,23 @@ $sql="SELECT  * FROM tbl_connection JOIN registration  WHERE tbl_connection.emai
 			
 		
 		?>
-			<h2><center style="padding-left:30%;"> Pending Requests</center></h2>
+			<h2><center style="padding-left:30%;"> Aproved Requests</center></h2>
         <div class='tab'>
 			<table cellpadding="7px">
 				<thead>
 				<div class="hed">
-				<th><center>User type</center></th>	
-				<th><center>Roll no</center></th>
-				<th><center>Name</center></th>
+				<th><center>Full Name</center></th>	
+				<th><center>Preferred Email Address</center></th>
+				<th><center>Given Email Id</center></th>
+                <th><center>AlterNet Email Address</center></th>
 				<th><center>Department</center></th>
-				<th><center>Course</center></th>
 				<!-- <th><center>Email</center></th> -->
 				<th><center>Designation</center></th>
 				<th><center>Connection type</center></th>
-				<th><center>Detail</center></th>
 				<th><center>Choice</center></th>
-               
+                <th><center>Detail</center></th>
+				
+
 				
                 </div>
 				
@@ -128,53 +114,34 @@ $sql="SELECT  * FROM tbl_connection JOIN registration  WHERE tbl_connection.emai
 				?>
 
 				<tr>
-					<td><?php echo $row['user_type']; ?></td>
+                    <td><?php echo $row['full_name']; ?></td>
+					
 					<td><?php echo $row['roll_no']; ?></td>
-					<td><?php echo $row['full_name']; ?></td>
 					<td><?php echo $row['dep_name']; ?></td>
 					<td><?php echo $row['course']; ?></td>
-					<!-- <td><?php// echo $row['email_id']; ?></td> -->
+					<!-- <td><?php //echo $row['email_id']; ?></td> -->
 					<td><?php echo $row['designation']; ?></td>
+                    <td><?php echo $row['user_type']; ?></td>
 					<td><?php echo $row['connection_type']; ?></td>
+                 <?php   if($row['connection_type']=='wifi')
+								{
+								?>
+									<td><a href="mac_wifi.php?email=<?php   echo $row['email_id'];  ?>">Provide</a></td>
+
+					   <?php } ?> 
 					
 					
 					
-					<?php
-					if($row['connection_type']=='wifi'){
-						?>
+					
+					<td><a href="details.php?email=<?php echo $row['email_id'];?>"><b><input type="button" name="detail" value="detail"></a></td>				
+				
 
-						<td><a href="details.php?email=<?php echo $row['email_id'];?>"><b><input type="button" name="detail" value="detail"></a></td>
-						
-						<?php
-					}				
-				?>
-
-<?php
-					if($row['connection_type']=='internet'){
-						?>
-
-						<td><a href="internet_p.php?email=<?php echo $row['email_id'];?>"><b><input type="button" name="detail" value="detail"></a></td>
-						
-						<?php
-					}				
-				?>
-
-<?php
-					if($row['connection_type']=='email'){
-						?>
-
-						<td><a href="exp2.php?email=<?php echo $row['email_id'];?>"><b><input type="button" name="detail" value="detail"></a></td>
-						
-						<?php
-					}				
-				?>
 
 					<form action="" method="post">
 
-					<td><input type="submit" name="APROVE" value="APPROVE"> 
-					<input type="submit" name="REJECT" value="REJECT"></td>
+					<!-- <td><input type="submit" name="Provide" value="Provide"> </td> -->
 
-					<!-- <td><?php// echo $row['email_id'];?></td> -->
+					
 				   
 					
 					<input type="hidden" name="userid" value = "<?php echo $row['user_id']; ?>">
@@ -194,7 +161,7 @@ $sql="SELECT  * FROM tbl_connection JOIN registration  WHERE tbl_connection.emai
 			?>
 
 				
-				<center><h1>No panding requests</h1></center>
+				<center><h1>No requests</h1></center>
 
 <?php
 }

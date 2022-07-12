@@ -1,6 +1,7 @@
 <?php 
     include 'header.php';
    $user=$_SESSION['type'];
+//    $email=$_GET['email'];
 ?>
 <html>
     <head>
@@ -43,6 +44,7 @@
                 /* border:1px solid red; */
             }
             #imgdiv{
+                background-color:#F2F4F4; 
                 /* border:1px solid black; */
             }
         </style>  
@@ -68,12 +70,14 @@
      Department of Computer Science
      Gujarat Vidyapith, Ahmedabad – 380 014
      Phone no : 40016414
-             <b>Wifi Connection Application Form  </b>
+             <b>Wifi Connection Application Form               </b>
 			<pre>
             </div>
             <?php 
                  include 'connection.php';
+               
                  $email=$_SESSION["login"];
+                
                  $sdfd="select * from tbl_connection where email_id='$email' ";
                 
                  if($result=mysqli_query($conn,$sdfd)){
@@ -90,9 +94,8 @@
                     <td><label for="name">Full Name :</label></td>
                     <td><lable></lable><?php echo $r['full_name']; ?></td>
                 </tr>
-                <?php if($user!='student') 
-                
-                {?>
+                <?php if($user !='student'){
+                    ?>
                 <tr>
                     <td><label for="name">Designation :</label></td>
                     <td><lable></lable><?php echo $r['designation']; ?></td>
