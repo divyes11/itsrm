@@ -239,25 +239,28 @@ $user_type=$_SESSION["type"];
 				function validation()
 					{
 						let nmptr =/^[a-zA-Z]+$/;
-						let pass =/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+						// let pass =/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+						var regex = /^([0-9A-F]{2}[:-]){5}([0-9A-F]{2})$/;
 
-						let name = document.forms['registrationform']['name'].value;
-						let email= document.forms['registrationform']['username'].value;
-						let roll_no = document.forms['registrationform']['roll_no'].value;
+
+						 let name = document.forms['registrationform']['name'].value;
+						let mac_address = document.forms['registrationform']['mac_address'].value;
 									
 						if(nmptr.test(name)==false){
 							alert("Name must be characters");
 							return(false);
 						}
 						
-						if(name.lenght<=40){
-							alert("Name must be characters less than 41");
-							return(false);
-						}
+						// if(name.lenght()<=40){
+						// 	alert("Name must be characters less than 41");
+						// 	return(false);
+						// }
 					
-						if(roll_no.lenght<=9)
-						{
-							alert('maximum lenght of rollno is 8');
+					
+
+						if(regex.test(mac_address)==false){
+				
+							alert('Enter valid MAC address');
 							return false;
 						}
 					}
@@ -270,7 +273,7 @@ $user_type=$_SESSION["type"];
 
 <?php
 
-$qurey1="SELECT * FROM tbl_connection where email_id='$email' ";
+$qurey1="SELECT * FROM tbl_connection where email_id='$email' and connection_type='wifi' ";
 $res=mysqli_query($conn,$qurey1);
 
 

@@ -125,7 +125,7 @@ else if($row['approve']==2)
 {
    $status="rejected";
 }
-else if($row['approve']==3)
+else if($row['approve']>=3)
 {
    $status="use wifi";
 }
@@ -148,13 +148,13 @@ else if($row['approve']==3)
 						}
 						else if( $row['connection_type']=='email')
 						{
-							echo '<b> <a href="exp2.php">Click Here</a></b>';
+							echo '<b> <a href="email_details.php?email=<?php echo $email ?>">Click Here</a></b>';
 						}
 						else if( $row['connection_type']=='internet')
 						{
 							echo '<b> <a href="internet_p.php">Click Here</a></b>';
 						}
-
+						
 						?>
 
 				  

@@ -74,7 +74,7 @@
             <?php 
                  include 'connection.php';
                
-                 $sdfd="select * from tbl_connection where email_id='$email' ";
+                 $sdfd="select * from tbl_connection where email_id='$email' and connection_type='internet' ";
                 
                  if($result=mysqli_query($conn,$sdfd)){
                     $r=mysqli_fetch_array($result);

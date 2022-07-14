@@ -174,7 +174,7 @@ $sql="SELECT  * FROM tbl_connection JOIN registration  WHERE tbl_connection.emai
 					<td><input type="submit" name="APROVE" value="APPROVE"> 
 					<input type="submit" name="REJECT" value="REJECT"></td>
 
-					<!-- <td><?php// echo $row['email_id'];?></td> -->
+					<!-- <td><?php//	 echo $row['email_id'];?></td> -->
 				   
 					
 					<input type="hidden" name="userid" value = "<?php echo $row['user_id']; ?>">

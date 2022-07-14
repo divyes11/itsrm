@@ -129,7 +129,12 @@ $sql="SELECT  * FROM tbl_connection JOIN registration  WHERE tbl_connection.emai
 									<td><a href="mac_wifi.php?email=<?php   echo $row['email_id'];  ?>">Provide</a></td>
 
 					   <?php } ?> 
-					
+					   <?php   if($row['connection_type']=='email')
+								{
+								?>
+									<td><a href="exp2.php?email=<?php   echo $row['email_id'];  ?>">Provide</a></td>
+
+					   <?php } ?> 
 					
 					
 					
