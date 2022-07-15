@@ -44,7 +44,7 @@ $message .= "<tr style='background: #eee;'><td><strong>ID:</strong> </td><td>" .
 $message .= "<tr style='background: #eee;'><td><strong>Password:</strong> </td><td>" . strip_tags($pass) . "</td></tr>";
 $message .= "</table></body></html>";
 $message .="<p><br/>Thank You<br/></p>";
-$mail->Subject = "IT Services - Registration Done";
+$mail->Subject = "IT Services - Internet Connection Done";
 $content = $message;
 
 $mail->MsgHTML($content); 

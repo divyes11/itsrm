@@ -246,7 +246,8 @@ $user_type=$_SESSION["type"];
 						 let name = document.forms['registrationform']['name'].value;
 						let mac_address = document.forms['registrationform']['mac_address'].value;
 									
-						if(nmptr.test(name)==false){
+						if(nmptr.test(name)==false)
+						{
 							alert("Name must be characters");
 							return(false);
 						}
@@ -343,7 +344,7 @@ $res=mysqli_query($conn,$qurey1);
 										 $file_ext=end($file_ext);
 										 #echo $file_ext;
 										 #echo $file_size;
-										 $extention=array("png","PNG","jpg","JPG");
+										 $extention=array("png","PNG","jpg","JPG","JPEG","jpeg");
 										 
 										 #if(in_array($file_ext,$extention)==true && $file_size < 18000)
 										 if(in_array($file_ext,$extention)==true)

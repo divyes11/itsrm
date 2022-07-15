@@ -113,7 +113,7 @@ if(isset($_POST['submit']))
     $password=$_POST['password'];
 
 
-   $sq ="UPDATE `tbl_connection` SET `ip_address`='$ip',`username`='$username',`password`='$password',`uplink`='$uplink' WHERE `email_id`='$email'  ";
+   $sq ="UPDATE `tbl_connection` SET `ip_address`='$ip',`username`='$username',`password`='$password',`uplink`='$uplink',`approve`=4 WHERE `email_id`='$email' and connection_type='internet' ";
 
    if(mysqli_query($conn,$sq) or die("insert query fail"))
    {

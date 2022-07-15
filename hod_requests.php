@@ -129,12 +129,62 @@ $sql="SELECT  * FROM tbl_connection JOIN registration  WHERE tbl_connection.emai
 
 				<tr>
 					<td><?php echo $row['user_type']; ?></td>
-					<td><?php echo $row['roll_no']; ?></td>
+					<!-- for roll no start -->
+
+					<?php 
+					if( $row['roll_no']==0)
+					{
+							echo '<td>' ;
+							echo '---';
+							echo '</td>';
+					}
+					else
+					{
+					echo "<td>";
+					echo  $row['roll_no'];
+					echo "</td>";
+					}
+					?>
 					<td><?php echo $row['full_name']; ?></td>
 					<td><?php echo $row['dep_name']; ?></td>
-					<td><?php echo $row['course']; ?></td>
+					<!-- for course start -->
+
+					<?php 
+					if($row['course']==null)
+					{
+							echo '<td>' ;
+							echo '---';
+							echo '</td>';
+					}
+					else
+					{
+					echo "<td>";
+					echo $row['course'];
+					echo "</td>";
+					}
+					?>
+
+					<!-- for course end -->
 					<!-- <td><?php// echo $row['email_id']; ?></td> -->
-					<td><?php echo $row['designation']; ?></td>
+					<!-- for designation start -->
+
+					<?php 
+					if($row['designation']==null)
+					{
+							echo '<td>' ;
+							echo '---';
+							echo '</td>';
+					}
+					else
+					{
+					echo "<td>";
+					echo $row['designation'];
+					echo "</td>";
+					}
+					?>
+
+					<!-- for designation end -->
+
 					<td><?php echo $row['connection_type']; ?></td>
 					
 					

@@ -3,6 +3,12 @@
 session_start();
 
 $_SESSION['type'];
+if($_SESSION['type']==null)
+{
+	echo "<script type=\"text/javascript\">
+	window.location = \"home.php\";
+	</script>";
+}
 $department=$_SESSION["depId"];
 $name=$_SESSION["name"];
 

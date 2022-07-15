@@ -1,7 +1,7 @@
 <?php 
     include 'header.php';
 //    $user=$_SESSION['type'];
-   $email=$_SESSION['login'];
+   $email=$_GET['email'];
 ?>
 <html>
     <head>

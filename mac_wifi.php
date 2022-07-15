@@ -6,7 +6,7 @@ include ('connection.php');
 
 $email=$_GET['email'];
 
-$query="SELECT * FROM `tbl_connection` WHERE email_id='$email' ";
+$query="SELECT * FROM `tbl_connection` WHERE email_id='$email'  and  connection_type='wifi'";
 
 $query2="UPDATE `tbl_connection` SET `ip_address`='',`username`='',`password`='',`mac_address`='' WHERE `email_id`=''   ";
 
@@ -26,7 +26,7 @@ $row=mysqli_fetch_assoc($result);
 	    <div class="app-content pt-3 p-md-3 p-lg-4">
 		    <div class="container-xl">
 			    
-			    <h1 class="app-page-title">Dashboard</h1>
+			    <h1 class="app-page-title">Dashboard </h1>
 			    
 			    <div class="app-card alert alert-dismissible shadow-sm mb-4 border-left-decoration" role="alert">
 				    <div class="inner">
@@ -37,7 +37,7 @@ $row=mysqli_fetch_assoc($result);
 							        
 									
 
-        <title>Wifi Form</title>
+        <title>Wifi Form </title>
       
    
  
@@ -116,11 +116,11 @@ if(isset($_POST['submit']))
     $password=$_POST['password'];
 
 
-   $sq ="UPDATE `tbl_connection` SET `ip_address`='$ip',`username`='$username',`password`='$password',`mac_address`='$mac_address' WHERE `email_id`='$email'  ";
+   $sq ="UPDATE `tbl_connection` SET `ip_address`='$ip',`username`='$username',`password`='$password',`mac_address`='$mac_address' ,`approve` =3 WHERE `email_id`='$email'  ";
    
    if(mysqli_query($conn,$sq) or die("insert query fail"))
    {
-        $query3= "UPDATE tbl_connection  SET approve =3  WHERE email_id ='$email' ";
+        
        echo "<script>alert('data save succesfully');</script>";
 
        include ('mail2.php');
@@ -140,7 +140,7 @@ if(isset($_POST['submit']))
 		if(mysqli_query($conn,$query3))
         {
 			echo'<script>
-			 alert("Request Reject");
+			 alert("Request accept");
 			</script>';
 		}
     

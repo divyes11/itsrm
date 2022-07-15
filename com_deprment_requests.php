@@ -130,24 +130,119 @@ $sql="SELECT  * FROM tbl_connection JOIN registration  WHERE tbl_connection.emai
 
 				<tr>
 					<td><?php echo $row['user_type']; ?></td>
-					<td><?php echo $row['roll_no']; ?></td>
+					<!-- for roll no start -->
+
+					<?php 
+					if( $row['roll_no']==0)
+					{
+							echo '<td>' ;
+							echo '---';
+							echo '</td>';
+					}
+					else
+					{
+					echo "<td>";
+					echo  $row['roll_no'];
+					echo "</td>";
+					}
+					?>
+
+					<!-- for roll no end -->
+
 					<td><?php echo $row['full_name']; ?></td>
 					<td><?php echo $row['dep_name']; ?></td>
-					<td><?php echo $row['course']; ?></td>
+					<!-- for course start -->
+
+					<?php 
+					if($row['course']==null)
+					{
+							echo '<td>' ;
+							echo '---';
+							echo '</td>';
+					}
+					else
+					{
+					echo "<td>";
+					echo $row['course'];
+					echo "</td>";
+					}
+					?>
+
+					<!-- for course end -->
 					<!-- <td><?php //echo $row['email_id']; ?></td> -->
-					<td><?php echo $row['designation']; ?></td>
+					<!-- for designation start -->
+
+					<?php 
+					if($row['designation']==null)
+					{
+							echo '<td>' ;
+							echo '---';
+							echo '</td>';
+					}
+					else
+					{
+					echo "<td>";
+					echo $row['designation'];
+					echo "</td>";
+					}
+					?>
+
+					<!-- for designation end -->
 					<td><?php echo $row['connection_type']; ?></td>
                  <?php   if($row['connection_type']=='wifi')
 								{
 								?>
 									<td><a href="mac_wifi.php?email=<?php   echo $row['email_id'];  ?>">Provide</a></td>
 
-					   <?php } ?> 
+					   <?php
+					 
+					 
+					}
+					else if($row['connection_type']=='internet')
+						{
+							?>
+							<td><a href="ip_internet.php?email=<?php   echo $row['email_id'];  ?>">Provide</a></td>
+
+					 
+
+
+						<?php
+						 }
+					 
+					 ?> 
 					
 					
 					
 					
-					<td><a href="details.php?email=<?php echo $row['email_id'];?>"><b><input type="button" name="detail" value="detail"></a></td>				
+					   <?php
+					if($row['connection_type']=='wifi'){
+						?>
+
+						<td><a href="details.php?email=<?php echo $row['email_id'];?>"><b><input type="button" name="detail" value="detail"></a></td>
+						
+						<?php
+					}				
+				?>
+
+<?php
+					if($row['connection_type']=='internet'){
+						?>
+
+						<td><a href="internet_p.php?email=<?php echo $row['email_id'];?>"><b><input type="button" name="detail" value="detail"></a></td>
+						
+						<?php
+					}				
+				?>
+
+<?php
+					if($row['connection_type']=='email'){
+						?>
+
+						<td><a href="exp2.php?email=<?php echo $row['email_id'];?>"><b><input type="button" name="detail" value="detail"></a></td>
+						
+						<?php
+					}				
+				?>
 				
 
 

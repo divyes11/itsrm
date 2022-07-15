@@ -17,26 +17,39 @@ include 'header.php';
 
 
 	
-.hed th
-{
-	
-   margin-left:30px; 
-   padding-left:50px;
-    
-}
+.tab
+	{
+		/* border:3px solid black;
+		margin-left:470px;
+		margin-right: 470px;
+		*/
+		/* padding-right:1%; */
+		margin-right:30%; 
+
+	}
 
 
-td
-{
-	border:3px solid black;
-	padding-left:25px;
-	padding-right:25px;
-}
 
-th
-{
-	border:3px solid black;
-}
+
+	.hed th
+	{
+		
+	margin-left:30px; 
+	padding-left:50px;
+		
+	}
+
+	td
+	{
+		border:3px solid black;
+		/* padding-left:5%; */
+		/* padding-right:50%; */
+	}
+
+	th
+	{
+		border:3px solid black;
+	} 
 
         </style>
     
@@ -72,6 +85,7 @@ th
 			<table id="table" cellpadding="2px">
 				<thead>
 				<div class="hed">
+				<th><center>User type</center></th>	
 				<th><center>Roll no</center></th>
 				<th><center>Name</center></th>
 				<th><center>Department</center></th>
@@ -93,16 +107,97 @@ th
 				
 				?>
 
-				<tr>
-					<td><?php echo $row['roll_no']; ?></td>
+<tr>
+					<td><?php echo $row['user_type']; ?></td>
+					<!-- for roll no start -->
+
+					<?php 
+					if( $row['roll_no']==0)
+					{
+							echo '<td>' ;
+							echo '---';
+							echo '</td>';
+					}
+					else
+					{
+					echo "<td>";
+					echo  $row['roll_no'];
+					echo "</td>";
+					}
+					?>
 					<td><?php echo $row['full_name']; ?></td>
 					<td><?php echo $row['dep_name']; ?></td>
-					<td><?php echo $row['course']; ?></td>
-					<!-- <td><?php //echo $row['email_id']; ?></td> -->
-					<td><?php echo $row['designation']; ?></td>
+					<!-- for course start -->
+
+					<?php 
+					if($row['course']==null)
+					{
+							echo '<td>' ;
+							echo '---';
+							echo '</td>';
+					}
+					else
+					{
+					echo "<td>";
+					echo $row['course'];
+					echo "</td>";
+					}
+					?>
+
+					<!-- for course end -->
+					<!-- <td><?php// echo $row['email_id']; ?></td> -->
+					<!-- for designation start -->
+
+					<?php 
+					if($row['designation']==null)
+					{
+							echo '<td>' ;
+							echo '---';
+							echo '</td>';
+					}
+					else
+					{
+					echo "<td>";
+					echo $row['designation'];
+					echo "</td>";
+					}
+					?>
+
+					<!-- for designation end -->
+
 					<td><?php echo $row['connection_type']; ?></td>
-					<td><a href="details.php?email=<?php echo $row['email_id'];?>"><b><input type="submit" name="detail" value="detail"></a></td>				
 					
+					
+					
+					<?php
+					if($row['connection_type']=='wifi'){
+						?>
+
+						<td><a href="details.php?email=<?php echo $row['email_id'];?>"><b><input type="button" name="detail" value="detail"></a></td>
+						
+						<?php
+					}				
+				?>
+
+<?php
+					if($row['connection_type']=='internet'){
+						?>
+
+						<td><a href="internet_p.php?email=<?php echo $row['email_id'];?>"><b><input type="button" name="detail" value="detail"></a></td>
+						
+						<?php
+					}				
+				?>
+
+<?php
+					if($row['connection_type']=='email'){
+						?>
+
+						<td><a href="exp2.php?email=<?php echo $row['email_id'];?>"><b><input type="button" name="detail" value="detail"></a></td>
+						
+						<?php
+					}				
+				?>
 					<form action="" method="post">
 						 
 								

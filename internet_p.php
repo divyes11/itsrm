@@ -1,6 +1,6 @@
 <?php 
     include 'header.php';
-    $email=$_SESSION["login"];
+    $email=$_GET['email'];
 ?>
 <html>
     <head>
