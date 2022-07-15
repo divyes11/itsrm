@@ -375,7 +375,7 @@ $res=mysqli_query($conn,$qurey1);
 														 $date=date('Y/m/d');
 														 if($user_type=='sevak'or $user_type=='hod')
 														 {
-															$sq ="INSERT INTO `tbl_connection`(`full_name`, `email_id`, `location`,`residentAddress`, `mobile_no`,`connection_type`, `date`, `approve`, `mac_address`,`profile_photo`,`designation`,`dep_name`,`user_type`) VALUES('$name','$emailid','$location','$residentaddress','$mobileno','wifi','$date','0','$mac_address','$file_tmp1','$designation','$dep_name','$user_type')";
+															$sq ="INSERT INTO `tbl_connection`(`full_name`, `email_id`, `location`,`residentAddress`, `mobile_no`,`connection_type`, `date`, `approve`, `mac_address`,`profile_photo`,`designation`,`dep_name`,`user_type`,`end_date`) VALUES('$name','$emailid','$location','$residentaddress','$mobileno','wifi','$date','0','$mac_address','$file_tmp1','$designation','$dep_name','$user_type','$end_date')";
 														 }
 														 else
 														 {
