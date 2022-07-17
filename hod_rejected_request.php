@@ -193,7 +193,7 @@ include 'header.php';
 					if($row['connection_type']=='email'){
 						?>
 
-						<td><a href="exp2.php?email=<?php echo $row['email_id'];?>"><b><input type="button" name="detail" value="detail"></a></td>
+						<td><a href="email_details2.php?email=<?php echo $row['email_id'];?>"><b><input type="button" name="detail" value="detail"></a></td>
 						
 						<?php
 					}				

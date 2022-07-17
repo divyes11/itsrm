@@ -20,7 +20,7 @@ include 'connection.php';
     margin-right: 470px;
 	 */
 	/* padding-right:1%; */
-	margin-right:30%; 
+	/* margin-right:1%;  */
 
 }
 
@@ -98,6 +98,8 @@ th
 				<th><center>Connection type</center></th>
 				<th><center>Status</center></th>
 				<th><center>Details</center></th>
+				<th><center>Message</center></th>
+				
 				
                 </div>
 				
@@ -116,18 +118,33 @@ $num=$num+1;
 if($row['approve']==0)
 {
    $status="pending";
+   $massage='Your request is pennding';
 }
 else if($row['approve']==1)
 {
    $status="approved";
+   $massage='Request is approved by Hod Now wait for computer Department action ';
+  
 }
 else if($row['approve']==2)
 {
    $status="rejected";
+   $massage='your request is rejected by H.O.D please contact H.O.D';
 }
-else if($row['approve']>=3)
+else if($row['approve']==3)
 {
    $status="use wifi";
+   $massage='Now you can use wifi';
+}
+else if($row['approve']==4)
+{
+   $status="use Internet";
+   $massage='Now you can use Internet';
+}
+else if($row['approve']==5)
+{
+   $status="use service";
+   $massage='your email is created now you can use it. press details to check';
 }
 
 ?>
@@ -144,22 +161,40 @@ else if($row['approve']>=3)
 						<?PHP
 						if( $row['connection_type']=='wifi')
 						{
-							echo '<b> <a href="wifi_p.php">Click Here</a></b>';
+							?>
+							
+							<a href="wifi_p.php?email=<?php echo $row['email_id'];?>"><b><input type="button" name="detail" value="detail"></a>
+							<?php
+							
+							
 						}
 						else if( $row['connection_type']=='email')
 						{
-							echo '<b> <a href="email_details.php?email=<?php echo $email ?>">Click Here</a></b>';
+							?>
+							
+							<a href="email_details.php?email=<?php echo $row['email_id'];?>"><b><input type="button" name="detail" value="detail"></a>
+							<?php
+
+							
 						}
 						else if( $row['connection_type']=='internet')
 						{
-							echo '<b> <a href="internet_p.php">Click Here</a></b>';
+							?>
+							
+							<a href="internet_p.php?email=<?php echo $row['email_id'];?>"><b><input type="button" name="detail" value="detail"></a>
+							<?php
 						}
 						
 						?>
+						
 
 				  
 					</td>
+					<td><?php  echo $massage;  ?>	</td>       
 </tr>
+					
+					
+					
 					
 		
 				

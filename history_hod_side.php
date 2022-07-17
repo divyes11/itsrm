@@ -4,58 +4,74 @@
 include 'header.php';
  include 'connection.php';
  $department_id=$_SESSION["dip"];
+ $branch=$_SESSION["branch"];
  
- $sql="SELECT  * FROM tbl_connection JOIN registration  WHERE tbl_connection.email_id=registration.email   and registration.depId=$department_id and   approve=1 ";
+//  $sql="SELECT  * FROM tbl_connection JOIN registration  WHERE registration.branch=$branch and tbl_connection.email_id=registration.email   and registration.depId=$department_id and   approve=0";
+$sql="SELECT  * FROM tbl_connection JOIN registration  WHERE tbl_connection.email_id=registration.email   and registration.depId=$department_id and  branch='$branch' and approve>0";
  $result=mysqli_query($conn,$sql) or die("query failed");
 
 //  $sql2="SELECT * FROM tbl_department WHERE dep_id=$department_id";
 //  $result2=mysqli_query($conn,$sql2) or die("query failed");
  
+
+
+// Warning: Undefined array key "branch" in C:\xampp1\htdocs\itsrm\hod_requests.php on line 7
  
+
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
 ?>
 
 <html>
 	<head>
 		 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-		 <style>
+			<style>
 
-.tab
-{
-    /* border:3px solid black;
-    margin-left:470px;
-    margin-right: 470px;
-	 */
-	/* padding-right:1%; */
-	/* margin-left:1%;  */
+	.tab
+	{
+		/* border:3px solid black;
+		margin-left:470px;
+		margin-right: 470px;
+		*/
+		/* padding-right:1%; */
+		margin-right:30%; 
 
-}
-#table,th,td{
-	border:3px solid red;
-    /* margin-left:470px; */
-    margin-right: 50px;
-}
+	}
 
-.hed th
-{
-	
-   /* margin-left:30px;  */
-   /* padding-left:50px; */
-    
-}
 
-td
-{
-	border:3px solid black;
-	padding-left:10px;
-	padding-right:5px;
-}
 
-th
-{
-	border:3px solid black;
-}
 
-        </style>
+	.hed th
+	{
+		
+	margin-left:30px; 
+	padding-left:50px;
+		
+	}
+
+	td
+	{
+		border:3px solid black;
+		/* padding-left:5%; */
+		/* padding-right:50%; */
+	}
+
+	th
+	{
+		border:3px solid black;
+	} 
+
+			</style>
 
     
         </head>
@@ -75,7 +91,7 @@ th
 						    <h3 class="mb-3"></h3>
 						    <div class="row gx-5 gy-3">
 						        <div class="col-12 col-lg-9">
-		
+	
 		
 		<?php
 		
@@ -84,36 +100,54 @@ th
 			
 		
 		?>
-
-		<h2><center style="padding-left:30%;">Approved Requests</center></h2>
+			<h2><center style="padding-left:30%;">All Requests</center></h2>
         <div class='tab'>
-			<table id="table" cellpadding="1px">
+			<table cellpadding="7px">
 				<thead>
 				<div class="hed">
-				<th><center>User Type</center></th>	
-				<th><center>Roll No</center></th>
+				<th><center>User type</center></th>	
+				<th><center>Roll no</center></th>
 				<th><center>Name</center></th>
 				<th><center>Department</center></th>
 				<th><center>Course</center></th>
 				<!-- <th><center>Email</center></th> -->
 				<th><center>Designation</center></th>
-				<th><center>Connection Type</center></th>
+				<th><center>Connection type</center></th>
 				<th><center>Detail</center></th>
 				<th><center>Choice</center></th>
+                <th><center>Status</center></th>
+               
 				
                 </div>
 				
 				</thead>
 				<?php
-				
+				$num=0;
 				while($row=mysqli_fetch_assoc($result))
 				{
+
+                    $num=$num+1;
+if($row['approve']==0)
+{
+   $status="pending";
+}
+else if($row['approve']==1)
+{
+   $status="approved";
+}
+else if($row['approve']==2)
+{
+   $status="rejected";
+}
+else if($row['approve']>=3)
+{
+   $status="use wifi";
+}
 									
 				?>
 
 				<tr>
 					<td><?php echo $row['user_type']; ?></td>
-
 					<!-- for roll no start -->
 
 					<?php 
@@ -130,15 +164,8 @@ th
 					echo "</td>";
 					}
 					?>
-
-					<!-- for roll no end -->
-
-					<!-- <td><?php //echo $row['roll_no']; ?></td> -->
-
-
 					<td><?php echo $row['full_name']; ?></td>
 					<td><?php echo $row['dep_name']; ?></td>
-
 					<!-- for course start -->
 
 					<?php 
@@ -157,11 +184,7 @@ th
 					?>
 
 					<!-- for course end -->
-					
-					<!-- <td><?php //echo $row['email_id']; ?></td> -->
-
-
-
+					<!-- <td><?php// echo $row['email_id']; ?></td> -->
 					<!-- for designation start -->
 
 					<?php 
@@ -181,10 +204,9 @@ th
 
 					<!-- for designation end -->
 
-
-				
 					<td><?php echo $row['connection_type']; ?></td>
-
+					
+					
 					
 					<?php
 					if($row['connection_type']=='wifi'){
@@ -215,14 +237,21 @@ th
 						<?php
 					}				
 				?>
-					
+
+                  
+
 					<form action="" method="post">
-						 
-								
-					<td><input type="submit" name="UNDO" value="UNDO"> </td>
+
+					<td>
+                        <!-- <input type="submit" name="APROVE" value="APPROVE">  -->
+					<input type="submit" name="REJECT" value="remove"></td>
+
+					<!-- <td><?php//	 echo $row['email_id'];?></td> -->
 				   
 					
 					<input type="hidden" name="userid" value = "<?php echo $row['user_id']; ?>">
+
+                    <td><?php  echo $status; ?> </td>    
 								 
 					</form>
 				</tr>
@@ -239,7 +268,7 @@ th
 			?>
 
 				
-				<center><h1>No Approved requests</h1></center>
+				<center><h1>No panding requests</h1></center>
 
 <?php
 }
@@ -256,12 +285,24 @@ th
 
 <?php 
 
-    if(isset($_POST['UNDO'])){
+    if(isset($_POST['APROVE'])){
+		$userid = $_POST['userid'];
+		$query = "UPDATE tbl_connection  SET approve ='1'  WHERE user_id ='$userid' ";
+		if(mysqli_query($conn,$query)){
+			echo'<script>
+			 alert("Request Aproved");
+			</script>';
+		}
+
+	}
+
+	if(isset($_POST['REJECT']))
+	{
 		$userid = $_POST['userid'];
 		$query = "UPDATE tbl_connection  SET approve ='0'  WHERE user_id ='$userid' ";
 		if(mysqli_query($conn,$query)){
 			echo'<script>
-			 alert("Request is pannding");
+			 alert("Request Reject");
 			</script>';
 		}
 
@@ -271,3 +312,24 @@ th
 
 
 ?>
+
+</div>
+
+	</div>
+	
+	<div>
+									</div>
+							    </div><!--//col-->
+							    <div class="col-12 col-lg-3">
+						
+							    </div><!--//col-->
+						    </div><!--//row-->
+						    
+					    </div><!--//app-card-body-->
+					    
+				    </div><!--//inner-->
+			    </div><!--//app-card-->
+				    
+			    
+		    </div><!--//container-fluid-->
+	    </div><!--//app-content-->

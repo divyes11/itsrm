@@ -4,6 +4,7 @@ include ('header.php');
 include ('connection.php');
 
 $email=$_GET['email'];
+$e_mail=$_GET['email'];
 
 
 
@@ -117,9 +118,18 @@ if(isset($_POST['submit']))
 
    if(mysqli_query($conn,$sq) or die("insert query fail"))
    {
-       echo "<script>alert('data save succesfully');</script>";
+       
 
-       include ('mail2.php');
+      
+        // include ('mail2.php');
+    //    echo "<script type=\"text/javascript\">
+    //             alert('mail send succesfully');
+	// 				window.location = \"connection_provided_request.php\";
+	// 				</script>";
+
+                    
+
+
    }
    else
    {

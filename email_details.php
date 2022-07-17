@@ -99,6 +99,11 @@
                     <td><label for="name">Deparment Name :</label></td>
                     <td><lable></lable><?php echo $r['dep_name']; ?></td>
                 </tr>
+
+                <?php 
+                if($r['approve']!=5)
+                {
+                ?>
                 
                 <tr>
                     <td><label for="Mobile">Preferred Email Address:</label></td>
@@ -113,6 +118,32 @@
                     <td><label for="email">AlterNet Email Address :</label></td>
                     <td><lable></lable><?php echo $r['alternet_email']; ?></td>
                 </tr>
+
+
+
+
+                <?php
+                }
+                
+                if($r['approve']==5)
+                {?>
+
+                <tr>
+                    <td style=" background-color:blue;color:yellow;"><label for="email">Created Email Address :</label></td>
+                    <td style=" background-color:blue;color:yellow;"><lable></lable><?php echo $r['preffred_email']; ?></td>
+                </tr>   
+
+
+                <?php
+
+
+                }
+                ?>
+
+
+
+
+
 
                
             </table>

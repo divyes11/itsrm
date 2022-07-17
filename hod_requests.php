@@ -213,7 +213,7 @@ $sql="SELECT  * FROM tbl_connection JOIN registration  WHERE tbl_connection.emai
 					if($row['connection_type']=='email'){
 						?>
 
-						<td><a href="exp2.php?email=<?php echo $row['email_id'];?>"><b><input type="button" name="detail" value="detail"></a></td>
+						<td><a href="email_details2.php?email=<?php echo $row['email_id'];?>"><b><input type="button" name="detail" value="detail"></a></td>
 						
 						<?php
 					}				
@@ -275,12 +275,24 @@ $sql="SELECT  * FROM tbl_connection JOIN registration  WHERE tbl_connection.emai
 	if(isset($_POST['REJECT']))
 	{
 		$userid = $_POST['userid'];
+
+		
+
+			
 		$query = "UPDATE tbl_connection  SET approve ='2'  WHERE user_id ='$userid' ";
+
+			
+
 		if(mysqli_query($conn,$query)){
 			echo'<script>
 			 alert("Request Reject");
 			</script>';
 		}
+	}
+	else{
+		
+
+	
 
 	}
 

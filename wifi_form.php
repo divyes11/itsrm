@@ -365,20 +365,23 @@ $res=mysqli_query($conn,$qurey1);
 															 $manth=date('m');
 
 
-															 $year2=date('Y')+2;
+															 
 															
 
-															 $end_date=$year2.'/'.$manth.'/'.$day;
+															 
 
 														 
 
 														 $date=date('Y/m/d');
 														 if($user_type=='sevak'or $user_type=='hod')
 														 {
+															$year2=date('Y')+5;
+															$end_date=$year2.'/'.$manth.'/'.$day;
 															$sq ="INSERT INTO `tbl_connection`(`full_name`, `email_id`, `location`,`residentAddress`, `mobile_no`,`connection_type`, `date`, `approve`, `mac_address`,`profile_photo`,`designation`,`dep_name`,`user_type`,`end_date`) VALUES('$name','$emailid','$location','$residentaddress','$mobileno','wifi','$date','0','$mac_address','$file_tmp1','$designation','$dep_name','$user_type','$end_date')";
 														 }
 														 else
-														 {
+														 {$year2=date('Y')+2;
+															$end_date=$year2.'/'.$manth.'/'.$day;
 															$sq ="INSERT INTO `tbl_connection`(`full_name`, `email_id`,`location`, `residentAddress`, `mobile_no`,`connection_type`, `date`, `approve`, `mac_address`,`profile_photo`,`course`,`roll_no`,`dep_name`,`user_type`,`end_date`) VALUES('$name','$emailid','$location','$residentaddress','$mobileno','wifi','$date','0','$mac_address','$file_tmp1','$course','$roll_no','$dep_name','$user_type','$end_date')";
 														 }
 														

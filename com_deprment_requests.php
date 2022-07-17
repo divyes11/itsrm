@@ -8,7 +8,7 @@ include 'header.php';
  
 //  $sql="SELECT  * FROM tbl_connection JOIN registration  WHERE registration.branch=$branch and tbl_connection.email_id=registration.email   and registration.depId=$department_id and   approve=0";
 $sql="SELECT  * FROM tbl_connection JOIN registration  WHERE tbl_connection.email_id=registration.email  and   approve=1";
- $result=mysqli_query($conn,$sql) or die("query failed");
+$result=mysqli_query($conn,$sql) or die("query failed");
 
 //  $sql2="SELECT * FROM tbl_department WHERE dep_id=$department_id";
 //  $result2=mysqli_query($conn,$sql2) or die("query failed");
@@ -207,7 +207,13 @@ $sql="SELECT  * FROM tbl_connection JOIN registration  WHERE tbl_connection.emai
 
 
 						<?php
-						 }
+						 }else if($row['connection_type']=='email')
+						 { ?>
+
+						<td><a href="com_side_email_form.php?email=<?php   echo $row['email_id'];  ?>">Provide</a></td>
+
+
+						<?php }
 					 
 					 ?> 
 					
@@ -238,7 +244,7 @@ $sql="SELECT  * FROM tbl_connection JOIN registration  WHERE tbl_connection.emai
 					if($row['connection_type']=='email'){
 						?>
 
-						<td><a href="exp2.php?email=<?php echo $row['email_id'];?>"><b><input type="button" name="detail" value="detail"></a></td>
+						<td><a href="email_details2.php?email=<?php echo $row['email_id'];?>"><b><input type="button" name="detail" value="detail"></a></td>
 						
 						<?php
 					}				

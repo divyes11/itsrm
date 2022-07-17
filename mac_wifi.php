@@ -116,14 +116,14 @@ if(isset($_POST['submit']))
     $password=$_POST['password'];
 
 
-   $sq ="UPDATE `tbl_connection` SET `ip_address`='$ip',`username`='$username',`password`='$password',`mac_address`='$mac_address' ,`approve` =3 WHERE `email_id`='$email'  ";
+   $sq ="UPDATE `tbl_connection` SET `ip_address`='$ip',`username`='$username',`password`='$password',`mac_address`='$mac_address' ,`approve` =3 WHERE `email_id`='$email' ";
    
    if(mysqli_query($conn,$sq) or die("insert query fail"))
    {
         
        echo "<script>alert('data save succesfully');</script>";
 
-       include ('mail2.php');
+    //    include ('mail2.php');
       echo "<script>
       window.location = \"com_deprment_requests.php\";
       </script>";

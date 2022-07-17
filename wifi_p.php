@@ -123,6 +123,26 @@
                     <td><label for="email">Site Location :</label></td>
                     <td><lable></lable><?php echo $r['location']; ?></td>
                 </tr>
+                
+                <?php
+                if($r['approve']==3 && $_SESSION["login"]==$r['email_id'])
+                {
+
+                ?>
+
+                <tr style=" background-color:blue;color:yellow;">
+                    <td><label >Username</label></td>
+                    <td><lable></lable><?php echo $r['username']; ?></td>
+                </tr>
+
+                <tr style=" background-color:blue;color:yellow;">
+                    <td ><label >Password</label></td>
+                    <td><lable></lable><?php echo $r['password']; ?></td>
+                </tr>
+
+                <?php
+            }
+             ?>
 
                
             </table>

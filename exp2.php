@@ -1,56 +1,84 @@
-<?php 
-    include 'header.php';
-//    $user=$_SESSION['type'];
-   $email=$_GET['email'];
+<?php
+
+
+include 'header.php';
+ include 'connection.php';
+ $department_id=$_SESSION["dip"];
+ $branch=$_SESSION["branch"];
+ 
+//  $sql="SELECT  * FROM tbl_connection JOIN registration  WHERE registration.branch=$branch and tbl_connection.email_id=registration.email   and registration.depId=$department_id and   approve=0";
+$sql="SELECT  * FROM tbl_connection JOIN registration  WHERE tbl_connection.email_id=registration.email   and registration.depId=$department_id and  branch='$branch' and approve>0";
+ $result=mysqli_query($conn,$sql) or die("query failed");
+
+//  $sql2="SELECT * FROM tbl_department WHERE dep_id=$department_id";
+//  $result2=mysqli_query($conn,$sql2) or die("query failed");
+ 
+
+
+// Warning: Undefined array key "branch" in C:\xampp1\htdocs\itsrm\hod_requests.php on line 7
+ 
+
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
 ?>
+
 <html>
-    <head>
-        <title>Aplication Details</title>  
-        <style>
-            #appdetails{
-                border:2px solid black;
-                width: 600px;
-            }
-            
-            #mdiv{
-                border:2px solid black;
-                width: 600px;
-            }
-            .table,td,tr{
-                border:2px solid black;
-                /* width:110%; */
-                
-               
+	<head>
+		 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+			<style>
 
-            }
+	.tab
+	{
+		/* border:3px solid black;
+		margin-left:470px;
+		margin-right: 470px;
+		*/
+		/* padding-right:1%; */
+		margin-right:30%; 
 
-            /* .demo
-            {
-                width:80%;
-                margin-left:20%;
-            } */
+	}
 
-              td
-             {
-                width:20%;
-             } 
 
-             /* input[type=text]
-             {
-                 width:110%; 
-             } */
-            #gdiv{
-                float:left;
-                /* border:1px solid red; */
-            }
-            #imgdiv{
-                background-color:#F2F4F4; 
-                /* border:1px solid black; */
-            }
-        </style>  
-    </head>
-    <body>
-    <div class="app-wrapper">
+
+
+	.hed th
+	{
+		
+	margin-left:30px; 
+	padding-left:50px;
+		
+	}
+
+	td
+	{
+		border:3px solid black;
+		/* padding-left:5%; */
+		/* padding-right:50%; */
+	}
+
+	th
+	{
+		border:3px solid black;
+	} 
+
+			</style>
+
+    
+        </head>
+	
+		<body>
+
+		<div class="app-wrapper">
 	    
 	    <div class="app-content pt-3 p-md-3 p-lg-4">
 		    <div class="container-xl">
@@ -63,59 +91,245 @@
 						    <h3 class="mb-3"></h3>
 						    <div class="row gx-5 gy-3">
 						        <div class="col-12 col-lg-9">
-        <form action="" id="appdetails" name="appdetails" method="post">
-           <div id="mdiv">
-           <div id="gdiv">
-            <pre>
-     Department of Computer Science
-     Gujarat Vidyapith, Ahmedabad – 380 014
-     Phone no : 40016414
-  <b>    Email Creation Application Form               </b>
-			<pre>
-            </div>
-            <?php 
-                 include 'connection.php';
+	
+		
+		<?php
+		
+		if($no=mysqli_num_rows($result)>0)
+		{
+			
+		
+		?>
+			<h2><center style="padding-left:30%;">All Requests</center></h2>
+        <div class='tab'>
+			<table cellpadding="7px">
+				<thead>
+				<div class="hed">
+				<th><center>User type</center></th>	
+				<th><center>Roll no</center></th>
+				<th><center>Name</center></th>
+				<th><center>Department</center></th>
+				<th><center>Course</center></th>
+				<!-- <th><center>Email</center></th> -->
+				<th><center>Designation</center></th>
+				<th><center>Connection type</center></th>
+				<th><center>Detail</center></th>
+				<th><center>Choice</center></th>
+                <th><center>Status</center></th>
                
-                 $sdfd="select * from tbl_connection where email_id='$email' ";
-                // echo $email;
-                 if($result=mysqli_query($conn,$sdfd))
-                 {
-                    $r=mysqli_fetch_array($result);
-                }
-            
-                ?>
-            <!-- <div id="imgdiv"><img src="<?php //echo $r['profile_photo']; ?>"  width="110" height="110"></div> -->
-           </div>
-            <table>
-                
-            
-                <tr>
-                    <td><label for="name">Full Name :</label></td>
-                    <td><lable></lable><?php echo $r['full_name']; ?></td>
-                </tr>
+				
+                </div>
+				
+				</thead>
+				<?php
+				$num=0;
+				while($row=mysqli_fetch_assoc($result))
+				{
+
+                    $num=$num+1;
+if($row['approve']==0)
+{
+   $status="pending";
+}
+else if($row['approve']==1)
+{
+   $status="approved";
+}
+else if($row['approve']==2)
+{
+   $status="rejected";
+}
+else if($row['approve']>=3)
+{
+   $status="use wifi";
+}
+									
+				?>
+
+				<tr>
+					<td><?php echo $row['user_type']; ?></td>
+					<!-- for roll no start -->
+
+					<?php 
+					if( $row['roll_no']==0)
+					{
+							echo '<td>' ;
+							echo '---';
+							echo '</td>';
+					}
+					else
+					{
+					echo "<td>";
+					echo  $row['roll_no'];
+					echo "</td>";
+					}
+					?>
+					<td><?php echo $row['full_name']; ?></td>
+					<td><?php echo $row['dep_name']; ?></td>
+					<!-- for course start -->
+
+					<?php 
+					if($row['course']==null)
+					{
+							echo '<td>' ;
+							echo '---';
+							echo '</td>';
+					}
+					else
+					{
+					echo "<td>";
+					echo $row['course'];
+					echo "</td>";
+					}
+					?>
+
+					<!-- for course end -->
+					<!-- <td><?php// echo $row['email_id']; ?></td> -->
+					<!-- for designation start -->
+
+					<?php 
+					if($row['designation']==null)
+					{
+							echo '<td>' ;
+							echo '---';
+							echo '</td>';
+					}
+					else
+					{
+					echo "<td>";
+					echo $row['designation'];
+					echo "</td>";
+					}
+					?>
+
+					<!-- for designation end -->
+
+					<td><?php echo $row['connection_type']; ?></td>
+					
+					
+					
+					<?php
+					if($row['connection_type']=='wifi'){
+						?>
+
+						<td><a href="details.php?email=<?php echo $row['email_id'];?>"><b><input type="button" name="detail" value="detail"></a></td>
+						
+						<?php
+					}				
+				?>
+
+<?php
+					if($row['connection_type']=='internet'){
+						?>
+
+						<td><a href="internet_p.php?email=<?php echo $row['email_id'];?>"><b><input type="button" name="detail" value="detail"></a></td>
+						
+						<?php
+					}				
+				?>
+
+<?php
+					if($row['connection_type']=='email'){
+						?>
+
+						<td><a href="email_details.php?email=<?php echo $row['email_id'];?>"><b><input type="button" name="detail" value="detail"></a></td>
+						
+						<?php
+					}				
+				?>
+
+                  
+
+					<form action="" method="post">
+
+					<td>
+                        <!-- <input type="submit" name="APROVE" value="APPROVE">  -->
+					<input type="submit" name="REJECT" value="remove"></td>
+
+					<!-- <td><?php//	 echo $row['email_id'];?></td> -->
+				   
+					
+					<input type="hidden" name="userid" value = "<?php echo $row['user_id']; ?>">
+
+                    <td><?php  echo $status; ?> </td>    
+								 
+					</form>
+				</tr>
+				
+				<?php
+				
+				}
+				
+		}
+		else
+		{
 
 
-                <tr>
-                    <td><label for="name">Deparment Name :</label></td>
-                    <td><lable></lable><?php echo $r['dep_name']; ?></td>
-                </tr>
-                
-                <tr>
-                    <td><label for="Mobile">Preferred Email Address:</label></td>
-                    <td><lable></lable><?php echo $r['preffred_email']; ?></td>
-                </tr>
-                <tr>
-                    <td><label for="email">Given Email Id :</label></td>
-                    <td><lable></lable><?php echo $r['email_id']; ?></td>
-                </tr>
+			?>
 
-                <tr>
-                    <td><label for="email">AlterNet Email Address :</label></td>
-                    <td><lable></lable><?php echo $r['alternet_email']; ?></td>
-                </tr>
+				
+				<center><h1>No panding requests</h1></center>
 
-               
-            </table>
-        </form>
-    </body>
+<?php
+}
+?>
+
+
+
+			</table>
+    </div>
+			
+		</body>
+
 </html>
+
+<?php 
+
+    if(isset($_POST['APROVE'])){
+		$userid = $_POST['userid'];
+		$query = "UPDATE tbl_connection  SET approve ='1'  WHERE user_id ='$userid' ";
+		if(mysqli_query($conn,$query)){
+			echo'<script>
+			 alert("Request Aproved");
+			</script>';
+		}
+
+	}
+
+	if(isset($_POST['REJECT']))
+	{
+		$userid = $_POST['userid'];
+		$query = "UPDATE tbl_connection  SET approve ='0'  WHERE user_id ='$userid' ";
+		if(mysqli_query($conn,$query)){
+			echo'<script>
+			 alert("Request Reject");
+			</script>';
+		}
+
+	}
+
+	
+
+
+?>
+
+</div>
+
+	</div>
+	
+	<div>
+									</div>
+							    </div><!--//col-->
+							    <div class="col-12 col-lg-3">
+						
+							    </div><!--//col-->
+						    </div><!--//row-->
+						    
+					    </div><!--//app-card-body-->
+					    
+				    </div><!--//inner-->
+			    </div><!--//app-card-->
+				    
+			    
+		    </div><!--//container-fluid-->
+	    </div><!--//app-content-->

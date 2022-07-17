@@ -252,7 +252,7 @@ include 'connection.php';
 														 
 														 
 														 $date=date('Y/m/d');
-														 $sql="INSERT INTO tbl_connection(full_name, email_id, designation, location, extension_no, mobile_no, reason, profile_photo, connection_type, date, approve,user_type,dep_name)VALUES ('$name','$emailid','$designation','$officelocation','$extentionno','$mobileno','$reason',' $file_tmp1','internet','$date',0,'$user_type','$deparment_name');";
+														 $sql="INSERT INTO tbl_connection(full_name, email_id, designation,location, extension_no, mobile_no, reason, profile_photo, connection_type, date, approve,user_type,dep_name)VALUES ('$name','$emailid','$designation','$officelocation','$extentionno','$mobileno','$reason',' $file_tmp1','internet','$date',0,'$user_type','$deparment_name');";
 														 //echo $sql;
 														
 														

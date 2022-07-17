@@ -55,7 +55,7 @@ include "connection.php";
 				echo "<font face=\"Verdana\" color=\"#EA2323\">Invalid Username or Password / Inactive users.</font>";
 		   }
 	       else
-	       {
+	       {     
                   $_SESSION["login"]=$arr['email'];	
 				   $_SESSION["branch"]=$arr['branch'];						  
                    $_SESSION["type"]= $arr['usertype'];
