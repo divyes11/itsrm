@@ -76,7 +76,7 @@
             <?php 
                  include 'connection.php';
                
-                 $sdfd="select * from tbl_connection where email_id='$email' ";
+                 $sdfd="select * from tbl_connection where email_id='$email' and connection_type='email' ";
                 // echo $email;
                  if($result=mysqli_query($conn,$sdfd))
                  {
@@ -107,16 +107,16 @@
                 
                 <tr>
                     <td><label for="Mobile">Preferred Email Address:</label></td>
-                    <td><lable></lable><?php echo $r['preffred_email']; ?></td>
+                    <td><lable><?php echo $r['preffred_email']; ?></lable></td>
                 </tr>
                 <tr>
                     <td><label for="email">Given Email Id :</label></td>
-                    <td><lable></lable><?php echo $r['email_id']; ?></td>
+                    <td><lable><?php echo $r['email_id']; ?></lable></td>
                 </tr>
 
                 <tr>
                     <td><label for="email">AlterNet Email Address :</label></td>
-                    <td><lable></lable><?php echo $r['alternet_email']; ?></td>
+                    <td><lable><?php echo $r['alternet_email']; ?></lable></td>
                 </tr>
 
 
@@ -125,7 +125,7 @@
                 <?php
                 }
                 
-                if($r['approve']==5)
+                if($r['approve']==5 &&  $_SESSION["login"]==$r['email_id'])
                 {?>
 
                 <tr>

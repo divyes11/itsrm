@@ -36,11 +36,20 @@ $user_type=$row['user_type'];
 						    <div class="row gx-5 gy-3">
 						        <div class="col-12 col-lg-9">
 							        
+
 								
         <title>Create email form</title>
-
+        <style>
+            .iptemt{
+                width:500px;
+                
+            }
+            input:hover{
+                border:2px solid black;
+            }
+        </style>
     <body>
-        <div id="maindiv">
+        <!-- <div id="maindiv"> -->
         <div id="formdiv">
             <form action="" id="rform" name="registrationform" onsubmit="return validation()" method="post" enctype="multipart/form-data" >
             <div id="leble" style="background-color:white;padding:15px;" class="form-control"><h4></h4></div>   
@@ -57,14 +66,14 @@ $user_type=$row['user_type'];
 			    <div>
                     <tr>
                         <td><label for="name"> Name :</label></td>
-                        <td><input class="iptemt" type="text"  name="name"  value="<?php echo $name; ?>" placeholder="Enter full Name" required></td>
+                        <td><input class="iptemt form-control" type="text"  name="name"  value="<?php echo $name; ?>" placeholder="Enter full Name" required></td>
                     </tr>
                 </div>
 
 				<div>
                     <tr>
                         <!-- <td><label for="department_name">deparment name</label></td> -->
-                        <td><input  class="iptemt" type="hidden"  name="deparment_name"  value="<?php echo $deparment_name; ?>" placeholder="Enter department Name" required></td>
+                        <td><input  class="iptemt form-control" type="hidden"  name="deparment_name"  value="<?php echo $deparment_name; ?>" placeholder="Enter department Name" required></td>
                     </tr>
                 </div>
 
@@ -72,7 +81,7 @@ $user_type=$row['user_type'];
 				<div>
                     <tr>
                         <!-- <td><label for="user_type">user type :</label></td> -->
-                        <td><input class="iptemt" type="hidden" name="user_type" placeholder="Enter user type" required></td>
+                        <td><input class="iptemt form-control" type="hidden" name="user_type" placeholder="Enter user type" required></td>
                     </tr>
                 </div>
 					   
@@ -80,7 +89,7 @@ $user_type=$row['user_type'];
                 <div>
                     <tr>
                         <td><label for="pemailid">Preferred Email Address:</label></td>
-                        <td><input class="iptemt" type="email" name="pemailid" placeholder="Enter Email Id" value="<?php  echo $row['preffred_email'];?>" required></td>
+                        <td><input class="iptemt form-control" type="email" name="pemailid" placeholder="Enter Email Id" value="<?php  echo $row['preffred_email'];?>" required></td>
                     </tr>
                 </div>   
 
@@ -91,7 +100,7 @@ $user_type=$row['user_type'];
                 <div>
                     <tr>
                         <td><label for="emailid">Given Email Id :</label></td>
-                        <td><input class="iptemt" type="email" name="emailid" placeholder="Enter Email Id" value="<?php  echo $row['email_id'];?>" required></td>
+                        <td><input class="iptemt form-control" type="email" name="emailid" placeholder="Enter Email Id" value="<?php  echo $row['email_id'];?>" required></td>
                     </tr>
                 </div>
 
@@ -99,13 +108,13 @@ $user_type=$row['user_type'];
                 <div>
                     <tr>
                         <td><label for="pemailid">AlterNet Email Address:</label></td>
-                        <td><input class="iptemt" type="email" name="Aemailid" placeholder="Enter Email Id" value="<?php  echo $row['alternet_email'];?>" ></td>
+                        <td><input class="iptemt form-control" type="email" name="Aemailid" placeholder="Enter Email Id" value="<?php  echo $row['alternet_email'];?>" ></td>
                     </tr>
                 </div> 
 						
 						<div>
                             <tr>
-                                <td><input type="submit" id="rsubmit"  name="submit" value="SUBMIT"></td>
+                                <td><input type="submit" class="btn" id="rsubmit" style="background-color:green;"  name="submit" value="SUBMIT"></td>
                             </tr>
                          </div>
                     </table>
@@ -113,7 +122,7 @@ $user_type=$row['user_type'];
             </form>
             
         </div>
-    </div>
+    <!-- </div> -->
         
     </body>
 </html>

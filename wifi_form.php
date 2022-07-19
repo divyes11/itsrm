@@ -11,6 +11,7 @@ $user_type=$_SESSION["type"];
 
 	?>
 	<head>
+	<meta name="viewport"content="width=device-width, initial-scale=1.0">
  <div class="app-wrapper">
 	    
 	    <div class="app-content pt-3 p-md-3 p-lg-4">
@@ -36,7 +37,7 @@ $user_type=$_SESSION["type"];
 			   border:1px solid black;
 			   color:black;
 			   font-weight:bold;
-			   width:100%;
+			   width:auto;
 
 			}
 			.iptemt
@@ -241,6 +242,7 @@ $user_type=$_SESSION["type"];
 						let nmptr =/^[a-zA-Z]+$/;
 						// let pass =/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
 						var regex = /^([0-9A-F]{2}[:-]){5}([0-9A-F]{2})$/;
+						let name =/^[a-zA-Z\s]/;
 
 
 						 let name = document.forms['registrationform']['name'].value;

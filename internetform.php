@@ -236,7 +236,7 @@ include 'connection.php';
 										 $file_ext=end($file_ext);
 										 #echo $file_ext;
 										 #echo $file_size;
-										 $extention=array("pdf","PDF","jpg");
+										 $extention=array("pdf","PDF","jpg","JPEG","jpeg");
 										 
 										 #if(in_array($file_ext,$extention)==true && $file_size < 18000)
 										 if(in_array($file_ext,$extention)==true)

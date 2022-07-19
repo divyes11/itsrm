@@ -254,6 +254,7 @@ else
 				{
 					let nmptr =/^[a-zA-Z]+$/;
 					let pass =/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+					let name =/^[a-zA-Z\s]/;
 		
 					let name = document.forms['validationform']['txtname'].value;
 					let email= document.forms['validationform']['txtemail'].value;
